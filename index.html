@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PrintersVault | Powerful Printing. Made Simple.</title>
+  <meta name="description" content="PrintersVault is your trusted online destination for high-performance printers, ink cartridges, toner, and printing accessories. Free shipping on orders over $99.">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- SECTION 1: HEADER SYSTEM -->
+  <!-- Top Announcement Bar -->
+  <div class="top-announcement-bar">
+    <div class="container">
+      <div>FREE SHIPPING ON ORDERS OVER $99</div>
+    </div>
+  </div>
+
+  <!-- Main Header -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-main-row">
+        <button class="mobile-nav-toggle" aria-label="Open Mobile Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+
+        <!-- 1. Logo -->
+        <a href="index.html" class="brand-logo" aria-label="PrintersVault Home">
+          <img src="images/mainlogo.png" alt="PrintersVault" class="main-logo">
+        </a>
+
+        <!-- 2. Navigation (Minimal 4 items: About Us, Shop, Blogs, Contact Us) -->
+        <ul class="header-nav-group">
+          <li><a href="pages/about.html" class="header-nav-link">About Us</a></li>
+          <li><a href="pages/shop.html" class="header-nav-link">Shop</a></li>
+          <li><a href="pages/blog.html" class="header-nav-link">Blogs</a></li>
+          <li><a href="pages/contact.html" class="header-nav-link">Contact Us</a></li>
+        </ul>
+
+        <!-- 3. Search Bar -->
+        <div class="header-search-wrap">
+          <form class="search-form">
+            <input type="text" class="search-input" placeholder="Search printers &amp; accessories..." aria-label="Search products">
+            <button type="submit" class="search-btn" aria-label="Submit search">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </button>
+          </form>
+        </div>
+
+        <!-- 4 & 5. Account & Cart -->
+        <div class="header-right-actions">
+          <a href="pages/account.html" class="header-action-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <span class="action-btn-label">Account</span>
+          </a>
+
+          <a href="pages/cart.html" class="header-action-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+            </svg>
+            <span class="action-btn-label cart-count-label">Cart</span>
+            <span class="badge badge-red cart-count-badge" style="display:none;">0</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="drawer-overlay"></div>
+  <div class="mobile-drawer">
+    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 1rem;">
+      <span style="font-weight: 800; font-size: 1.1rem; color: var(--text-dark);">Menu</span>
+      <span style="font-size: 0.85rem; color: var(--text-muted); cursor: pointer;" onclick="document.querySelector('.mobile-drawer').classList.remove('open'); document.querySelector('.drawer-overlay').classList.remove('open');">Close ✕</span>
+    </div>
+    <form class="search-form">
+      <input type="text" class="search-input" placeholder="Search printers &amp; accessories..." aria-label="Mobile search">
+    </form>
+    <div style="display: flex; flex-direction: column; gap: 0.85rem; font-weight: 700;">
+      <a href="pages/about.html">About Us</a>
+      <a href="pages/shop.html">Shop</a>
+      <a href="pages/blog.html">Blogs</a>
+      <a href="pages/contact.html">Contact Us</a>
+      <a href="pages/account.html">Account</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- SECTION 2: HERO SECTION -->
+    <section class="hero-commercial-banner">
+      <!-- Background Graphic Elements (Dot pattern & Curved Red Swooshes matching reference) -->
+      <div class="hero-bg-graphics" aria-hidden="true">
+        <div class="hero-dots-left"></div>
+        <div class="hero-dots-right"></div>
+        <svg class="hero-swoosh-svg" viewBox="0 0 1440 680" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path d="M 500 0 C 700 180, 580 420, 420 680 L 1440 680 L 1440 0 Z" fill="url(#swooshGradLight)" opacity="0.45"/>
+          <path d="M 750 0 C 1050 220, 700 460, 1440 560 L 1440 0 Z" fill="url(#swooshGradRed)" opacity="0.75"/>
+          <path d="M 1150 0 C 1300 240, 950 480, 1440 680 L 1440 0 Z" fill="#E30613" opacity="0.85"/>
+          <defs>
+            <linearGradient id="swooshGradLight" x1="500" y1="0" x2="1440" y2="680" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#FFFFFF"/>
+              <stop offset="50%" stop-color="#F8ECEC"/>
+              <stop offset="100%" stop-color="#FCE8E8"/>
+            </linearGradient>
+            <linearGradient id="swooshGradRed" x1="750" y1="0" x2="1440" y2="560" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0"/>
+              <stop offset="40%" stop-color="#F8C8CA" stop-opacity="0.5"/>
+              <stop offset="100%" stop-color="#E30613" stop-opacity="0.8"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+
+      <div class="container">
+        <div class="hero-commercial-grid">
+          <!-- Left Content -->
+          <div class="hero-left">
+            <div class="hero-red-line"></div>
+            <div class="hero-tag">PRINTING, SIMPLIFIED.</div>
+            <h1 class="hero-title">Print Better.<br>Work <span class="text-red">Smarter.</span></h1>
+            <p class="hero-copy">Discover reliable printers, ink, toner and essential accessories for home, office and business — all in one place.</p>
+            
+            <div class="hero-ctas-row">
+              <a href="pages/shop.html" class="btn-hero-pill">Shop Printers &rarr;</a>
+            </div>
+
+            <div class="hero-trust-wrapper">
+              <div class="hero-trust-item">
+                <span class="check-circle">✓</span>
+                <span class="trust-text">Quality Products</span>
+              </div>
+              <div class="trust-divider"></div>
+              <div class="hero-trust-item">
+                <span class="check-circle">✓</span>
+                <span class="trust-text">Secure Checkout</span>
+              </div>
+              <div class="trust-divider"></div>
+              <div class="hero-trust-item">
+                <span class="check-circle">✓</span>
+                <span class="trust-text">Fast Delivery</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Product Image -->
+          <div class="hero-right">
+            <div class="hero-image-wrap">
+              <img src="images/hero.png" alt="PrintersVault Premium Printer &amp; Printing Supplies" class="hero-product-img">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: FEATURED PRODUCTS -->
+    <section class="section-commercial-padding" style="background-color: var(--bg-white);">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2.25rem;">
+          <div>
+            <h2 class="section-main-heading">Featured Products</h2>
+            <p class="section-sub-heading">Explore some of our most popular printing solutions.</p>
+          </div>
+          <a href="pages/shop.html" style="font-size: 0.9rem; font-weight: 700; color: var(--primary-red); display: inline-flex; align-items: center; gap: 0.25rem;">
+            View All Products &rarr;
+          </a>
+        </div>
+
+        <div class="products-4col-grid" id="featured-products-grid">
+          <!-- Dynamic JS Products Injected Here -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: IMAGE + CONTENT SECTION #1 (BUILT FOR EVERYDAY PRINTING) -->
+    <section class="split-ref-section split-ref-sec1">
+      <!-- Background SVG Swoosh & Dot Matrix -->
+      <div class="split-ref-bg" aria-hidden="true">
+        <div class="split-ref-dots-left"></div>
+        <div class="split-ref-dots-right-top"></div>
+        <svg class="split-ref-swoosh-svg" viewBox="0 0 1440 600" fill="none" preserveAspectRatio="none">
+          <path d="M 600 0 C 850 150, 700 350, 500 600 L 1440 600 L 1440 0 Z" fill="url(#split1Swoosh)" opacity="0.35"/>
+          <defs>
+            <linearGradient id="split1Swoosh" x1="600" y1="0" x2="1440" y2="600" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#FFFFFF"/>
+              <stop offset="50%" stop-color="#FCE8E8"/>
+              <stop offset="100%" stop-color="#F8C8CA"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+
+      <div class="container position-relative z-2">
+        <div class="split-ref-grid">
+          <!-- Left Column: Image with Red Accent Frames & Dot Matrix -->
+          <div class="split-ref-img-col">
+            <div class="split-ref-img-wrapper">
+              <!-- Corner Red Accent Boxes matching Reference 1 -->
+              <div class="red-accent-top-left"></div>
+              <div class="red-accent-bottom-right"></div>
+              <div class="red-dots-matrix-left"></div>
+              
+              <!-- Main Image Frame -->
+              <div class="split-ref-img-box">
+                <img src="images/build.png" alt="Built for Everyday Printing - The Right Printer for the Way You Work" class="split-ref-img">
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Content -->
+          <div class="split-ref-content-col">
+            <div class="split-ref-tag-wrap">
+              <span class="split-ref-red-line"></span>
+              <span class="split-ref-tag">BUILT FOR EVERYDAY PRINTING</span>
+            </div>
+
+            <h2 class="split-ref-title">The Right <span class="title-serif">P</span>rinter<br>for the Way <span class="text-red">You Work</span></h2>
+
+            <p class="split-ref-desc">From everyday documents to demanding office workloads, PrintersVault helps you find printing solutions designed around your needs.</p>
+
+            <!-- 3-Column Features Row -->
+            <div class="split-ref-features">
+              <div class="split-ref-feat-item">
+                <div class="split-ref-icon-square">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.38a2 2 0 0 0-.73-2.73l-.15-.1a2 2 0 0 1-1-1.72v-.51a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+                </div>
+                <div class="split-ref-feat-label">Reliable<br>performance</div>
+              </div>
+
+              <div class="split-ref-feat-divider"></div>
+
+              <div class="split-ref-feat-item">
+                <div class="split-ref-icon-square">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+                </div>
+                <div class="split-ref-feat-label">Easy<br>connectivity</div>
+              </div>
+
+              <div class="split-ref-feat-divider"></div>
+
+              <div class="split-ref-feat-item">
+                <div class="split-ref-icon-square">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <div class="split-ref-feat-label">Designed for<br>everyday use</div>
+              </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="split-ref-cta">
+              <a href="pages/shop.html?category=Printers" class="btn-ref-pill">Explore Printers &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: IMAGE + CONTENT SECTION #2 (PRINTING ESSENTIALS) -->
+    <section class="split-ref-section split-ref-sec2">
+      <!-- Background SVG Swoosh & Dot Matrix -->
+      <div class="split-ref-bg" aria-hidden="true">
+        <div class="split-ref-dots-left-sec2"></div>
+        <div class="split-ref-dots-right-sec2"></div>
+        <svg class="split-ref-swoosh-svg" viewBox="0 0 1440 600" fill="none" preserveAspectRatio="none">
+          <path d="M 0 0 C 400 200, 250 450, 0 600 L 0 0 Z" fill="url(#split2SwooshLeft)" opacity="0.3"/>
+          <path d="M 800 600 C 1100 400, 950 150, 1440 300 L 1440 600 Z" fill="url(#split2SwooshRight)" opacity="0.4"/>
+          <defs>
+            <linearGradient id="split2SwooshLeft" x1="0" y1="0" x2="400" y2="600" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#FCE8E8"/>
+              <stop offset="100%" stop-color="#FFFFFF"/>
+            </linearGradient>
+            <linearGradient id="split2SwooshRight" x1="800" y1="600" x2="1440" y2="300" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#FCE8E8"/>
+              <stop offset="100%" stop-color="#F8C8CA"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+
+      <div class="container position-relative z-2">
+        <div class="split-ref-grid">
+          <!-- Left Column: Content -->
+          <div class="split-ref-content-col">
+            <div class="split-ref-tag-wrap">
+              <span class="split-ref-red-line"></span>
+              <span class="split-ref-tag">PRINTING ESSENTIALS</span>
+            </div>
+
+            <h2 class="split-ref-title">Keep Your Printer<br>Running at <span class="text-red">Its Best</span></h2>
+
+            <p class="split-ref-desc">Find the ink, toner and accessories you need to keep your printing workflow running smoothly.</p>
+
+            <!-- 3-Column Features Row -->
+            <div class="split-ref-features">
+              <div class="split-ref-feat-item">
+                <div class="split-ref-icon-circle">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+                </div>
+                <div class="split-ref-feat-label-single">Ink &amp; Toner</div>
+              </div>
+
+              <div class="split-ref-feat-divider"></div>
+
+              <div class="split-ref-feat-item">
+                <div class="split-ref-icon-circle">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.38a2 2 0 0 0-.73-2.73l-.15-.1a2 2 0 0 1-1-1.72v-.51a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+                </div>
+                <div class="split-ref-feat-label-single">Printer Accessories</div>
+              </div>
+
+              <div class="split-ref-feat-divider"></div>
+
+              <div class="split-ref-feat-item">
+                <div class="split-ref-icon-circle">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                </div>
+                <div class="split-ref-feat-label-single">Everyday Supplies</div>
+              </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="split-ref-cta">
+              <a href="pages/shop.html?category=Accessories" class="btn-ref-pill">Shop Accessories &rarr;</a>
+            </div>
+
+            <!-- Bottom Trust Bar -->
+            <div class="split-ref-trust-strip">
+              <div class="split-ref-trust-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E30613" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                <span>Fast Delivery</span>
+              </div>
+              <div class="split-ref-trust-line"></div>
+              <div class="split-ref-trust-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E30613" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+                <span>Secure Checkout</span>
+              </div>
+              <div class="split-ref-trust-line"></div>
+              <div class="split-ref-trust-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E30613" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+                <span>Dedicated Support</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Image with Red Accent Frames & Floating Printer Badge -->
+          <div class="split-ref-img-col">
+            <div class="split-ref-img-wrapper">
+              <!-- Floating Printer Badge on Left Edge -->
+              <div class="split-ref-floating-badge" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E30613" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+              </div>
+
+              <!-- Corner Red Accent Boxes matching Reference 2 -->
+              <div class="red-accent-bottom-left"></div>
+              <div class="red-accent-top-right"></div>
+              <div class="red-dots-matrix-right"></div>
+
+              <!-- Main Image Frame -->
+              <div class="split-ref-img-box">
+                <img src="images/ESSENTIALS.png" alt="Printing Essentials - Keep Your Printer Running at Its Best" class="split-ref-img">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: PRINTING MADE SIMPLE (HOW IT WORKS IMAGE) -->
+    <section class="how-section">
+      <img src="images/how-it-works.png" alt="Printing Made Simple - How It Works" class="how-it-works-img">
+    </section>
+
+    <!-- SECTION 8: TESTIMONIALS -->
+    <section class="testimonials-section">
+      <!-- Background SVG Graphics & Dots -->
+      <div class="testi-bg-graphics" aria-hidden="true">
+        <div class="testi-dots-left"></div>
+        <div class="testi-dots-right"></div>
+        <svg class="testi-swoosh-svg" viewBox="0 0 1440 500" fill="none" preserveAspectRatio="none">
+          <path d="M 0 0 C 350 150, 200 350, 0 500 L 0 0 Z" fill="url(#testiSwooshLeft)" opacity="0.3"/>
+          <path d="M 950 500 C 1200 350, 1100 150, 1440 250 L 1440 500 Z" fill="url(#testiSwooshRight)" opacity="0.35"/>
+          <defs>
+            <linearGradient id="testiSwooshLeft" x1="0" y1="0" x2="350" y2="500" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#FCE8E8"/>
+              <stop offset="100%" stop-color="#FFFFFF"/>
+            </linearGradient>
+            <linearGradient id="testiSwooshRight" x1="950" y1="500" x2="1440" y2="250" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#FCE8E8"/>
+              <stop offset="100%" stop-color="#F8C8CA"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+
+      <div class="container position-relative z-2">
+        <!-- Header: Eyebrow + Title + Subtitle -->
+        <div class="testi-header-wrap">
+          <div class="testi-eyebrow">
+            <span class="testi-eyebrow-line"></span>
+            <span class="testi-eyebrow-text">WHAT CUSTOMERS SAY</span>
+            <span class="testi-eyebrow-line"></span>
+          </div>
+          <h2 class="testi-title">What Customers <span class="text-red">Say</span></h2>
+          <p class="testi-subtitle">Real feedback from professionals and home office users.</p>
+        </div>
+
+        <!-- Testimonials Carousel Slider Container -->
+        <div class="testi-slider-container" id="testi-slider">
+          <div class="testi-slider-track" id="testi-track">
+            <!-- Card 1 -->
+            <div class="testimonial-card">
+              <div class="testi-card-top-row">
+                <div class="testimonial-stars">★★★★★</div>
+                <div class="testi-quote-badge">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="#E30613"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                </div>
+              </div>
+              <p class="testimonial-quote">"Finding the right printer was much easier than I expected. The product information made comparing options simple."</p>
+              <div class="testi-card-divider"></div>
+              <div class="testimonial-author-row">
+                <div class="avatar-placeholder">AM</div>
+                <div>
+                  <div class="author-name">Alex M.</div>
+                  <div class="author-role">Small Business Owner</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="testimonial-card">
+              <div class="testi-card-top-row">
+                <div class="testimonial-stars">★★★★★</div>
+                <div class="testi-quote-badge">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="#E30613"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                </div>
+              </div>
+              <p class="testimonial-quote">"Ordered replacement ink and accessories. Quick delivery, clean checkout process, and exact compatibility."</p>
+              <div class="testi-card-divider"></div>
+              <div class="testimonial-author-row">
+                <div class="avatar-placeholder">JR</div>
+                <div>
+                  <div class="author-name">Jordan R.</div>
+                  <div class="author-role">Home Office Professional</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="testimonial-card">
+              <div class="testi-card-top-row">
+                <div class="testimonial-stars">★★★★★</div>
+                <div class="testi-quote-badge">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="#E30613"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                </div>
+              </div>
+              <p class="testimonial-quote">"Great selection of all-in-one printers for our workspace. The setup guidance and specifications were clear and accurate."</p>
+              <div class="testi-card-divider"></div>
+              <div class="testimonial-author-row">
+                <div class="avatar-placeholder">TK</div>
+                <div>
+                  <div class="author-name">Taylor K.</div>
+                  <div class="author-role">Office Administrator</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="testimonial-card">
+              <div class="testi-card-top-row">
+                <div class="testimonial-stars">★★★★★</div>
+                <div class="testi-quote-badge">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="#E30613"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                </div>
+              </div>
+              <p class="testimonial-quote">"The print quality on photo paper is outstanding. Color accuracy is crucial for my client proofs, and this printer delivers."</p>
+              <div class="testi-card-divider"></div>
+              <div class="testimonial-author-row">
+                <div class="avatar-placeholder">DS</div>
+                <div>
+                  <div class="author-name">David S.</div>
+                  <div class="author-role">Graphic Designer</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="testimonial-card">
+              <div class="testi-card-top-row">
+                <div class="testimonial-stars">★★★★★</div>
+                <div class="testi-quote-badge">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="#E30613"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                </div>
+              </div>
+              <p class="testimonial-quote">"Fast delivery and hassle-free setup. Had my wireless printer connected to three devices in under ten minutes."</p>
+              <div class="testi-card-divider"></div>
+              <div class="testimonial-author-row">
+                <div class="avatar-placeholder">SL</div>
+                <div>
+                  <div class="author-name">Sarah L.</div>
+                  <div class="author-role">Remote Work Consultant</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="testimonial-card">
+              <div class="testi-card-top-row">
+                <div class="testimonial-stars">★★★★★</div>
+                <div class="testi-quote-badge">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="#E30613"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                </div>
+              </div>
+              <p class="testimonial-quote">"Shipping labels print crisp and fast without jamming. Ordering toner replacements here is always reliable."</p>
+              <div class="testi-card-divider"></div>
+              <div class="testimonial-author-row">
+                <div class="avatar-placeholder">MV</div>
+                <div>
+                  <div class="author-name">Marcus V.</div>
+                  <div class="author-role">E-commerce Seller</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 7 -->
+            <div class="testimonial-card">
+              <div class="testi-card-top-row">
+                <div class="testimonial-stars">★★★★★</div>
+                <div class="testi-quote-badge">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="#E30613"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                </div>
+              </div>
+              <p class="testimonial-quote">"Handles high-volume document printing smoothly. Ink efficiency has been a pleasant surprise for our studio."</p>
+              <div class="testi-card-divider"></div>
+              <div class="testimonial-author-row">
+                <div class="avatar-placeholder">EB</div>
+                <div>
+                  <div class="author-name">Emily B.</div>
+                  <div class="author-role">Architectural Drafter</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 8 -->
+            <div class="testimonial-card">
+              <div class="testi-card-top-row">
+                <div class="testimonial-stars">★★★★★</div>
+                <div class="testi-quote-badge">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="#E30613"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                </div>
+              </div>
+              <p class="testimonial-quote">"Solid build quality and reliable wireless scanning. The ordering process was simple and delivery arrived earlier than estimated."</p>
+              <div class="testi-card-divider"></div>
+              <div class="testimonial-author-row">
+                <div class="avatar-placeholder">RH</div>
+                <div>
+                  <div class="author-name">Robert H.</div>
+                  <div class="author-role">Accounting Specialist</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slider Controls: Nav Arrows & Pagination Dots -->
+        <div class="testi-controls-wrapper">
+          <button type="button" class="testi-arrow-btn testi-prev-btn" id="testi-prev" aria-label="Previous testimonials">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+
+          <div class="testi-dots-pagination" id="testi-dots">
+            <!-- Dynamic dots created by JS -->
+          </div>
+
+          <button type="button" class="testi-arrow-btn testi-next-btn" id="testi-next" aria-label="Next testimonials">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 9: FAQ -->
+    <section class="faq-section" id="faq">
+      <!-- Background SVG Graphics & Dots -->
+      <div class="faq-bg-graphics" aria-hidden="true">
+        <div class="faq-dots-left"></div>
+        <div class="faq-dots-right"></div>
+        <svg class="faq-swoosh-svg" viewBox="0 0 1440 600" fill="none" preserveAspectRatio="none">
+          <path d="M 0 0 C 350 150, 200 350, 0 600 L 0 0 Z" fill="url(#faqSwooshLeft)" opacity="0.3"/>
+          <path d="M 950 600 C 1200 400, 1100 150, 1440 300 L 1440 600 Z" fill="url(#faqSwooshRight)" opacity="0.35"/>
+          <defs>
+            <linearGradient id="faqSwooshLeft" x1="0" y1="0" x2="350" y2="600" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#FCE8E8"/>
+              <stop offset="100%" stop-color="#FFFFFF"/>
+            </linearGradient>
+            <linearGradient id="faqSwooshRight" x1="950" y1="600" x2="1440" y2="300" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#FCE8E8"/>
+              <stop offset="100%" stop-color="#F8C8CA"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+
+      <div class="container position-relative z-2">
+        <!-- Header: Eyebrow + Title + Subtitle -->
+        <div class="faq-header-wrap">
+          <div class="faq-eyebrow">
+            <span class="faq-eyebrow-line"></span>
+            <span class="faq-eyebrow-text">FAQ</span>
+            <span class="faq-eyebrow-line"></span>
+          </div>
+          <h2 class="faq-title">Frequently Asked <span class="text-red">Questions</span></h2>
+          <p class="faq-subtitle">Everything you need to know about our printers and ordering process.</p>
+        </div>
+
+        <!-- 2-Column Asymmetric Layout (Left Image with Red Accent Frames, Right Accordion) -->
+        <div class="faq-grid">
+          <!-- Left Column: Image with Red Accent Frames & Dot Matrix (matching BUILT FOR EVERYDAY PRINTING) -->
+          <div class="split-ref-img-col">
+            <div class="split-ref-img-wrapper">
+              <div class="red-accent-top-left"></div>
+              <div class="red-accent-bottom-right"></div>
+              <div class="red-dots-matrix-left"></div>
+              
+              <div class="split-ref-img-box">
+                <img src="images/build.png" alt="PrintersVault Printers and Accessories" class="split-ref-img">
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Accordion List -->
+          <div class="faq-accordion-col">
+            <div class="faq-accordion-list">
+              <!-- Q1 -->
+              <div class="faq-item">
+                <button class="faq-question-btn" type="button">
+                  <span class="faq-num-badge">01</span>
+                  <span class="faq-question-text">What types of printers do you sell?</span>
+                  <span class="faq-circle-icon">
+                    <svg class="plus-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                  </span>
+                </button>
+                <div class="faq-answer-pane">
+                  <p class="faq-answer-text">PrintersVault offers a range of printers for home, office and business use.</p>
+                </div>
+              </div>
+
+              <!-- Q2 -->
+              <div class="faq-item">
+                <button class="faq-question-btn" type="button">
+                  <span class="faq-num-badge">02</span>
+                  <span class="faq-question-text">Do you sell ink and toner?</span>
+                  <span class="faq-circle-icon">
+                    <svg class="plus-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                  </span>
+                </button>
+                <div class="faq-answer-pane">
+                  <p class="faq-answer-text">Yes. The store includes ink, toner and other essential printing supplies.</p>
+                </div>
+              </div>
+
+              <!-- Q3 -->
+              <div class="faq-item">
+                <button class="faq-question-btn" type="button">
+                  <span class="faq-num-badge">03</span>
+                  <span class="faq-question-text">How do I know which cartridge is compatible?</span>
+                  <span class="faq-circle-icon">
+                    <svg class="plus-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                  </span>
+                </button>
+                <div class="faq-answer-pane">
+                  <p class="faq-answer-text">Product pages should clearly display compatibility information where available.</p>
+                </div>
+              </div>
+
+              <!-- Q4 -->
+              <div class="faq-item">
+                <button class="faq-question-btn" type="button">
+                  <span class="faq-num-badge">04</span>
+                  <span class="faq-question-text">Do you offer free shipping?</span>
+                  <span class="faq-circle-icon">
+                    <svg class="plus-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                  </span>
+                </button>
+                <div class="faq-answer-pane">
+                  <p class="faq-answer-text">Free shipping is available on qualifying orders over $99.</p>
+                </div>
+              </div>
+
+              <!-- Q5 -->
+              <div class="faq-item">
+                <button class="faq-question-btn" type="button">
+                  <span class="faq-num-badge">05</span>
+                  <span class="faq-question-text">Can I track my order?</span>
+                  <span class="faq-circle-icon">
+                    <svg class="plus-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                  </span>
+                </button>
+                <div class="faq-answer-pane">
+                  <p class="faq-answer-text">Order tracking information can be provided through the order/account experience.</p>
+                </div>
+              </div>
+
+              <!-- Q6 -->
+              <div class="faq-item">
+                <button class="faq-question-btn" type="button">
+                  <span class="faq-num-badge">06</span>
+                  <span class="faq-question-text">How can I contact support?</span>
+                  <span class="faq-circle-icon">
+                    <svg class="plus-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                  </span>
+                </button>
+                <div class="faq-answer-pane">
+                  <p class="faq-answer-text">Customers can contact PrintersVault through the Contact Us page or email.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- COLUMN 1 — BRAND -->
+        <div class="footer-col footer-col-brand">
+          <a href="index.html" class="footer-logo-wrap" aria-label="PrintersVault Home">
+            <img src="images/whitelogo.png" alt="PrintersVault" class="footer-logo">
+          </a>
+          <p class="footer-brand-desc">
+            Your trusted destination for printers, ink, toner and essential printing accessories for home, office and business.
+          </p>
+          <div class="footer-social-row">
+            <a href="#" onclick="event.preventDefault()" class="footer-social-link" aria-label="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
+            </a>
+            <a href="#" onclick="event.preventDefault()" class="footer-social-link" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a href="#" onclick="event.preventDefault()" class="footer-social-link" aria-label="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+            <a href="#" onclick="event.preventDefault()" class="footer-social-link" aria-label="X (Twitter)">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- COLUMN 2 — QUICK LINKS -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Quick Links</h4>
+          <ul class="footer-links-list">
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="pages/about.html" class="footer-link">About Us</a></li>
+            <li><a href="pages/shop.html" class="footer-link">Shop</a></li>
+            <li><a href="pages/blog.html" class="footer-link">Blogs</a></li>
+            <li><a href="pages/contact.html" class="footer-link">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- COLUMN 3 — POLICY -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Policy</h4>
+          <ul class="footer-links-list">
+            <li><a href="pages/about.html#privacy" class="footer-link">Privacy Policy</a></li>
+            <li><a href="pages/about.html#terms" class="footer-link">Terms &amp; Conditions</a></li>
+            <li><a href="pages/contact.html#shipping" class="footer-link">Shipping Policy</a></li>
+            <li><a href="pages/about.html#disclaimer" class="footer-link">Disclaimer</a></li>
+          </ul>
+        </div>
+
+        <!-- COLUMN 4 — QUICK CONNECT -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Quick Connect</h4>
+          <ul class="footer-links-list footer-contact-list">
+            <li class="footer-contact-item">
+              <span class="footer-contact-label">Email</span>
+              <a href="mailto:hello@printersvault.com" class="footer-link">hello@printersvault.com</a>
+            </li>
+            <li class="footer-contact-item">
+              <span class="footer-contact-label">Contact No.</span>
+              <a href="tel:+18005557768" class="footer-link">+1 (800) 555-PRNT</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- COPYRIGHT BAR -->
+      <div class="footer-copyright-bar">
+        <p>&copy; 2026 PrintersVault. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Core JavaScript Libraries -->
+  <script src="js/products.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    // Inject featured products on page load (12 Products as per requirement)
+    document.addEventListener('DOMContentLoaded', () => {
+      const container = document.getElementById('featured-products-grid');
+      if (container && typeof PRODUCTS !== 'undefined') {
+        const featuredList = PRODUCTS.slice(0, 12);
+        container.innerHTML = featuredList.map(p => createProductCardHTML(p)).join('');
+      }
+    });
+  </script>
+</body>
+</html>
