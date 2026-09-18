@@ -1,0 +1,70 @@
+# ==========================================================================
+# PRINTERSVAULT — PRODUCTION SECURITY & APACHE SERVER CONFIGURATION
+# Protects against directory exposure, unauthorized downloads, frame hijacking,
+# and enforces strict browser security headers.
+# ==========================================================================
+
+# 1. PREVENT DIRECTORY BROWSING & EXPOSURE
+Options -Indexes -MultiViews
+
+# 2. SET DEFAULT CHARSET
+AddDefaultCharset UTF-8
+
+# 3. BLOCK ACCESS TO SENSITIVE CONFIG, DOTFILES, LOGS & SCRATCH FILES
+<FilesMatch "^(\.env|\.git|\.htaccess|package(-lock)?\.json|.*\.md|.*\.log|.*\.sh|.*\.bat)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# 4. BLOCK ACCESS TO INTERNAL SCRATCH & SCRIPT DIRECTORIES
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Enforce HTTPS where supported by host
+    RewriteCond %{HTTPS} off
+    RewriteCond %{HTTP_HOST} !^localhost [NC]
+    RewriteCond %{HTTP_HOST} !^127\.0\.0\.1 [NC]
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # Block public access to internal development scratch/scripts
+    RewriteRule ^(scratch|scripts|\.system_generated)(/|$) - [F,L]
+</IfModule>
+
+# 5. SECURITY HEADERS
+<IfModule mod_headers.c>
+    # Prevent MIME-type sniffing
+    Header set X-Content-Type-Options "nosniff"
+
+    # Strict Referrer Policy for user privacy
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+
+    # Disable risky browser APIs not used by the site
+    Header set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
+
+    # Frame Ancestors / Clickjacking Protection
+    Header set X-Frame-Options "SAMEORIGIN"
+
+    # Content Security Policy (Hardened & Scoped for Google Fonts & site assets)
+    Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'; frame-ancestors 'self';"
+
+    # Strict-Transport-Security (HSTS) when served over HTTPS
+    Header set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" env=HTTPS
+</IfModule>
+
+# 6. CACHING & PERFORMANCE HEADERS FOR STATIC ASSETS
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault "access plus 1 month"
+    ExpiresByType text/html "access plus 0 seconds"
+    ExpiresByType text/css "access plus 1 week"
+    ExpiresByType application/javascript "access plus 1 week"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/svg+xml "access plus 1 month"
+    ExpiresByType image/x-icon "access plus 1 year"
+</IfModule>

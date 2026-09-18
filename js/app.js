@@ -13,6 +13,17 @@ function getPagesPrefix() {
   return (path.includes('/pages/') || path.endsWith('/pages')) ? '' : 'pages/';
 }
 
+// Global HTML Escaper for XSS Prevention
+function escapeHTML(str) {
+  if (str === null || str === undefined) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
 // Format Currency
 function formatCurrency(amount) {
   return `$${Number(amount).toFixed(2)}`;
@@ -108,8 +119,8 @@ function showToast(message, type = 'success', customTitle = null) {
       ${iconSVG}
     </div>
     <div class="toast-content">
-      <div class="toast-title">${title}</div>
-      <div class="toast-subtext">${subtitle}</div>
+      <div class="toast-title">${escapeHTML(title)}</div>
+      <div class="toast-subtext">${escapeHTML(subtitle)}</div>
     </div>
     <button type="button" class="toast-close-btn" aria-label="Close notification" onclick="dismissToast(this.closest('.toast'))">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -373,20 +384,20 @@ function createProductCardHTML(product) {
   const svgVisual = (typeof generateProductSVG === 'function') ? generateProductSVG(product.type, product.name.replace('PrintersVault ', ''), product.svgAccent) : '';
   const visualHTML = product.image ? `<img src="${pathPrefix}${product.image}" alt="${product.name}" class="product-card-img" loading="lazy">` : svgVisual;
 
-  const metaTag = product.brand ? `${product.brand} • ${product.category}` : product.category;
+  const metaTag = product.brand ? `${escapeHTML(product.brand)} • ${escapeHTML(product.category)}` : escapeHTML(product.category);
 
   return `
-    <div class="product-card" data-id="${product.id}">
+    <div class="product-card" data-id="${escapeHTML(product.id)}">
       <div class="card-image-wrap">
-        ${product.discount ? `<span class="card-sale-badge badge badge-red">${product.discount}% OFF</span>` : (product.badge ? `<span class="card-sale-badge badge badge-dark">${product.badge}</span>` : '')}
+        ${product.discount ? `<span class="card-sale-badge badge badge-red">${escapeHTML(product.discount)}% OFF</span>` : (product.badge ? `<span class="card-sale-badge badge badge-dark">${escapeHTML(product.badge)}</span>` : '')}
         
-        <button class="card-wishlist-btn ${isWishlisted ? 'active' : ''}" onclick="event.preventDefault(); handleWishlistClick('${product.id}', this)" aria-label="Add to Wishlist">
+        <button class="card-wishlist-btn ${isWishlisted ? 'active' : ''}" onclick="event.preventDefault(); handleWishlistClick('${escapeHTML(product.id)}', this)" aria-label="Add to Wishlist">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="${isWishlisted ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2">
             <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
           </svg>
         </button>
 
-        <a href="${pagesPrefix}product.html?id=${product.id}" class="card-img-link">
+        <a href="${pagesPrefix}product.html?id=${escapeHTML(product.id)}" class="card-img-link">
           ${visualHTML}
         </a>
       </div>
@@ -394,7 +405,7 @@ function createProductCardHTML(product) {
       <div class="card-body">
         <div class="card-meta-category">${metaTag}</div>
         <h3 class="card-product-name">
-          <a href="${pagesPrefix}product.html?id=${product.id}">${product.name}</a>
+          <a href="${pagesPrefix}product.html?id=${escapeHTML(product.id)}">${escapeHTML(product.name)}</a>
         </h3>
 
         <div class="card-rating-row">

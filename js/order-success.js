@@ -104,7 +104,7 @@ function renderOrderSuccessPage() {
         </div>
 
         <!-- Details Grid (Payment & Status) -->
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 1.75rem; background: #F8FAFC; padding: 1.25rem; border-radius: 10px; border: 1px solid #E2E8F0;">
+        <div class="order-summary-matrix-grid">
           <div>
             <div style="font-size: 0.75rem; color: #64748B; text-transform: uppercase; font-weight: 800; letter-spacing: 0.05em; margin-bottom: 4px;">PAYMENT METHOD</div>
             <div style="font-weight: 800; color: #111111; font-size: 0.95rem;">${targetOrder.paymentMethod || 'Cash on Delivery (COD)'}</div>

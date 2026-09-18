@@ -102,7 +102,7 @@
     <div id="checkoutMainWrap" class="container">
       <h1 style="font-size: 2.25rem; font-weight: 800; margin-bottom: 2rem; color: var(--text-dark);">Checkout</h1>
 
-      <div class="cart-layout" style="display: grid; grid-template-columns: 1fr 400px; gap: 2.5rem; align-items: start;">
+      <div class="checkout-layout-grid">
         <!-- Left: Form -->
         <div>
           <form id="checkoutForm" novalidate>
@@ -135,7 +135,7 @@
                 <input type="text" id="chkAddress" class="search-input" style="background: #FFF; width: 100%;" placeholder="123 Tech Boulevard, Suite 400" required>
               </div>
 
-              <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 1rem;">
+              <div class="checkout-triplet-grid">
                 <div>
                   <label for="chkCity" style="display: block; font-size: 0.875rem; font-weight: 700; margin-bottom: 0.35rem;">City *</label>
                   <input type="text" id="chkCity" class="search-input" style="background: #FFF; width: 100%;" placeholder="New York" required>
