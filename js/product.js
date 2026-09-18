@@ -322,7 +322,6 @@ function renderProductDetails(container, product) {
         <button type="button" class="pdetail-tab-btn" onclick="switchProductTab('specs', this)">Specifications</button>
         <button type="button" class="pdetail-tab-btn" onclick="switchProductTab('inbox', this)">In the Box</button>
         <button type="button" class="pdetail-tab-btn" onclick="switchProductTab('reviews', this)">Reviews (${product.reviews || 320})</button>
-        <button type="button" class="pdetail-tab-btn" onclick="switchProductTab('support', this)">Support</button>
       </div>
 
       <!-- Tab 1: Overview -->
@@ -385,16 +384,6 @@ function renderProductDetails(container, product) {
             <span style="color: #FFB800;">★★★★★</span>
           </div>
           <p style="color: #475569; margin: 0; font-size: 0.9rem;">Excellent print quality and super easy wireless setup with my laptop and mobile phone!</p>
-        </div>
-      </div>
-
-      <!-- Tab 5: Support -->
-      <div id="tab-support" class="pdetail-tab-panel">
-        <h3 class="pdetail-ov-heading">Downloads &amp; Support Resources</h3>
-        <p style="color: #475569; margin-bottom: 1.5rem;">Download drivers, software utilities, user guides, and troubleshooting documentation for ${product.name}.</p>
-        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-          <a href="#" onclick="event.preventDefault(); showToast('Downloading Driver Pack...', 'info')" class="btn btn-outline btn-sm">⬇ Download Drivers</a>
-          <a href="#" onclick="event.preventDefault(); showToast('Downloading User Manual PDF...', 'info')" class="btn btn-outline btn-sm">📄 User Manual (PDF)</a>
         </div>
       </div>
     </div>
