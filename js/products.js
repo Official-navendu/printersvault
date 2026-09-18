@@ -1,6 +1,6 @@
 /* ==========================================================================
    PRINTERSVAULT — MASTER PRODUCT DATASET (44 PRODUCTS)
-   Source of Truth: Centralized E-Commerce Catalog matching Smart ePrint
+   Source of Truth: Centralized PrintersVault E-Commerce Catalog
    ========================================================================== */
 
 const PRODUCTS = [
