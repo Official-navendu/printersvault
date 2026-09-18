@@ -18,8 +18,8 @@ function formatCurrency(amount) {
   return `$${Number(amount).toFixed(2)}`;
 }
 
-// Toast Alert System
-function showToast(message, type = 'success') {
+// Toast Alert System - Premium Redesign
+function showToast(message, type = 'success', customTitle = null) {
   let container = document.querySelector('.toast-container');
   if (!container) {
     container = document.createElement('div');
@@ -27,49 +27,261 @@ function showToast(message, type = 'success') {
     document.body.appendChild(container);
   }
 
+  // Parse Title & Subtext for clean e-commerce hierarchy
+  let title = customTitle;
+  let subtitle = message;
+
+  if (!title) {
+    const lowerMsg = String(message).toLowerCase();
+    if (lowerMsg.includes('added') && lowerMsg.includes('cart')) {
+      title = 'Added to Cart';
+      const prodMatch = message.match(/Added "([^"]+)" to cart!/);
+      if (prodMatch && prodMatch[1]) {
+        subtitle = `${prodMatch[1]} has been added to your cart.`;
+      }
+    } else if (lowerMsg.includes('wishlist') && lowerMsg.includes('added')) {
+      title = 'Added to Wishlist';
+      subtitle = 'Item saved to your wishlist.';
+    } else if (lowerMsg.includes('wishlist') && lowerMsg.includes('removed')) {
+      title = 'Wishlist Updated';
+      subtitle = 'Item removed from your wishlist.';
+    } else if (lowerMsg.includes('removed') && lowerMsg.includes('cart')) {
+      title = 'Cart Updated';
+      subtitle = 'Item has been removed from your cart.';
+    } else if (lowerMsg.includes('cart cleared')) {
+      title = 'Cart Cleared';
+      subtitle = 'All items removed from your cart.';
+    } else if (lowerMsg.includes('discount applied')) {
+      title = 'Discount Applied';
+      subtitle = '10% promotional discount applied.';
+    } else if (lowerMsg.includes('promo code removed')) {
+      title = 'Promo Code Removed';
+      subtitle = 'Promotional discount code removed.';
+    } else if (lowerMsg.includes('invalid promo code')) {
+      title = 'Invalid Code';
+      subtitle = message;
+    } else if (lowerMsg.includes('logged out')) {
+      title = 'Signed Out';
+      subtitle = 'You have been logged out of your account.';
+    } else if (lowerMsg.includes('welcome')) {
+      title = 'Welcome Back';
+      subtitle = message;
+    } else if (lowerMsg.includes('account created')) {
+      title = 'Account Created';
+      subtitle = message;
+    } else {
+      switch (type) {
+        case 'error':
+          title = 'Notice';
+          break;
+        case 'warning':
+          title = 'Warning';
+          break;
+        case 'info':
+          title = 'Information';
+          break;
+        case 'success':
+        default:
+          title = 'Success';
+          break;
+      }
+    }
+  }
+
+  // Type-Specific Crisp Inline SVGs
+  let iconSVG = '';
+  if (type === 'error') {
+    iconSVG = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C90A0E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>`;
+  } else if (type === 'warning') {
+    iconSVG = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>`;
+  } else if (type === 'info') {
+    iconSVG = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#008EDA" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>`;
+  } else {
+    // success (default)
+    iconSVG = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C90A0E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
+  }
+
   const toast = document.createElement('div');
   toast.className = `toast toast-${type}`;
   toast.innerHTML = `
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-      <polyline points="20 6 9 17 4 12"></polyline>
-    </svg>
-    <span>${message}</span>
+    <div class="toast-icon-wrap toast-icon-${type}">
+      ${iconSVG}
+    </div>
+    <div class="toast-content">
+      <div class="toast-title">${title}</div>
+      <div class="toast-subtext">${subtitle}</div>
+    </div>
+    <button type="button" class="toast-close-btn" aria-label="Close notification" onclick="dismissToast(this.closest('.toast'))">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    <div class="toast-progress"></div>
   `;
 
   container.appendChild(toast);
 
-  setTimeout(() => {
-    toast.style.opacity = '0';
-    toast.style.transform = 'translateY(10px)';
-    toast.style.transition = 'all 0.3s ease';
-    setTimeout(() => toast.remove(), 300);
-  }, 3000);
+  requestAnimationFrame(() => {
+    toast.classList.add('show');
+  });
+
+  const dismissTimer = setTimeout(() => {
+    dismissToast(toast);
+  }, 3500);
+
+  if (typeof toast.addEventListener === 'function') {
+    toast.addEventListener('click', (e) => {
+      if (e.target && typeof e.target.closest === 'function' && e.target.closest('.toast-close-btn')) {
+        clearTimeout(dismissTimer);
+      }
+    });
+  }
 }
+
+function dismissToast(toast) {
+  if (!toast || (toast.classList && typeof toast.classList.contains === 'function' && toast.classList.contains('hide'))) return;
+  if (toast.classList) {
+    if (typeof toast.classList.remove === 'function') toast.classList.remove('show');
+    if (typeof toast.classList.add === 'function') toast.classList.add('hide');
+  }
+  setTimeout(() => {
+    if (toast && toast.parentNode && typeof toast.remove === 'function') toast.remove();
+  }, 280);
+}
+
+// Storage Constants
+const CART_STORAGE_KEY = 'printersVaultCart';
+const LEGACY_CART_KEY = 'pv_cart';
+const WISHLIST_STORAGE_KEY = 'printersVaultWishlist';
+const ORDERS_STORAGE_KEY = 'printersVaultOrders';
+const LEGACY_ORDERS_KEY = 'pv_orders';
 
 // Get / Set LocalStorage Utilities
 function getCart() {
   try {
-    return JSON.parse(localStorage.getItem('pv_cart')) || [];
+    let cart = JSON.parse(localStorage.getItem(CART_STORAGE_KEY));
+    if (!cart || !Array.isArray(cart)) {
+      const legacy = JSON.parse(localStorage.getItem(LEGACY_CART_KEY));
+      if (legacy && Array.isArray(legacy)) {
+        cart = legacy;
+        localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
+      } else {
+        cart = [];
+      }
+    }
+    return cart;
   } catch (e) {
     return [];
   }
 }
 
 function saveCart(cart) {
-  localStorage.setItem('pv_cart', JSON.stringify(cart));
+  try {
+    localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
+    localStorage.setItem(LEGACY_CART_KEY, JSON.stringify(cart));
+  } catch (e) {}
   updateHeaderBadges();
+}
+
+function clearCart() {
+  try {
+    localStorage.removeItem(CART_STORAGE_KEY);
+    localStorage.removeItem(LEGACY_CART_KEY);
+  } catch (e) {}
+  updateHeaderBadges();
+}
+
+function updateCartItemQty(productId, delta) {
+  let cart = getCart();
+  const item = cart.find(i => String(i.id) === String(productId));
+  if (item) {
+    item.quantity += Number(delta);
+    if (item.quantity <= 0) {
+      cart = cart.filter(i => String(i.id) !== String(productId));
+    }
+    saveCart(cart);
+  }
+  return cart;
+}
+
+function removeCartItem(productId) {
+  let cart = getCart();
+  cart = cart.filter(i => String(i.id) !== String(productId));
+  saveCart(cart);
+  return cart;
+}
+
+function calcCartTotals(cart, promoCode = '') {
+  const subtotal = cart.reduce((sum, item) => sum + (Number(item.price) * Number(item.quantity)), 0);
+  const freeShippingThreshold = 299;
+  const isFreeShipping = subtotal >= freeShippingThreshold || cart.length === 0;
+  const shipping = isFreeShipping ? 0 : 9.99;
+  
+  let discount = 0;
+  let discountCode = '';
+  if (promoCode && promoCode.trim().toUpperCase() === 'SAVE10') {
+    discount = subtotal * 0.10;
+    discountCode = 'SAVE10';
+  }
+
+  const taxableAmount = Math.max(0, subtotal - discount);
+  const tax = 0;
+  const total = Math.max(0, taxableAmount + shipping);
+
+  return {
+    subtotal,
+    shipping,
+    isFreeShipping,
+    freeShippingThreshold,
+    discount,
+    discountCode,
+    tax: 0,
+    total,
+    itemCount: cart.reduce((sum, item) => sum + Number(item.quantity), 0)
+  };
+}
+
+function getOrders() {
+  try {
+    let orders = JSON.parse(localStorage.getItem(ORDERS_STORAGE_KEY));
+    if (!orders || !Array.isArray(orders)) {
+      const legacy = JSON.parse(localStorage.getItem(LEGACY_ORDERS_KEY));
+      if (legacy && Array.isArray(legacy)) {
+        orders = legacy;
+        localStorage.setItem(ORDERS_STORAGE_KEY, JSON.stringify(orders));
+      } else {
+        orders = [];
+      }
+    }
+    return orders;
+  } catch (e) {
+    return [];
+  }
+}
+
+function saveOrder(orderData) {
+  const orders = getOrders();
+  orders.unshift(orderData);
+  try {
+    localStorage.setItem(ORDERS_STORAGE_KEY, JSON.stringify(orders));
+    localStorage.setItem(LEGACY_ORDERS_KEY, JSON.stringify(orders));
+  } catch (e) {}
+  return orders;
 }
 
 function getWishlist() {
   try {
-    return JSON.parse(localStorage.getItem('pv_wishlist')) || [];
+    return JSON.parse(localStorage.getItem(WISHLIST_STORAGE_KEY)) || [];
   } catch (e) {
     return [];
   }
 }
 
 function saveWishlist(wishlist) {
-  localStorage.setItem('pv_wishlist', JSON.stringify(wishlist));
+  try {
+    localStorage.setItem(WISHLIST_STORAGE_KEY, JSON.stringify(wishlist));
+  } catch (e) {}
   updateHeaderBadges();
 }
 
@@ -108,9 +320,9 @@ function addToCart(productId, quantity = 1) {
       sku: product.sku,
       category: product.category,
       type: product.type || 'printer',
-      image: product.image || 'images/build.png',
+      image: product.image || 'images/products/pv_001.png',
       modelName: product.name,
-      svgAccent: product.svgAccent || '#E30613',
+      svgAccent: product.svgAccent || '#C90A0E',
       quantity: Number(quantity)
     });
   }
@@ -122,7 +334,7 @@ function addToCart(productId, quantity = 1) {
 // Update Header Badge Counters
 function updateHeaderBadges() {
   const cart = getCart();
-  const totalCartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+  const totalCartCount = cart.reduce((sum, item) => sum + Number(item.quantity), 0);
   
   const cartCountLabels = document.querySelectorAll('.cart-count-label');
   cartCountLabels.forEach(el => {
@@ -136,23 +348,32 @@ function updateHeaderBadges() {
   });
 
   const wishlist = getWishlist();
+  const wishlistCount = wishlist.length;
+
+  const wishlistLabels = document.querySelectorAll('.wishlist-count-label');
+  wishlistLabels.forEach(el => {
+    el.textContent = `Wishlist ${wishlistCount > 0 ? wishlistCount : ''}`.trim();
+  });
+
   const wishlistBadges = document.querySelectorAll('.wishlist-count-badge');
   wishlistBadges.forEach(el => {
-    el.textContent = wishlist.length;
-    el.style.display = wishlist.length > 0 ? 'inline-flex' : 'none';
+    el.textContent = wishlistCount;
+    el.style.display = wishlistCount > 0 ? 'inline-flex' : 'none';
   });
 }
 
 // Commercial Product Card Component (Requirement 17 Structure)
 function createProductCardHTML(product) {
   const wishlist = getWishlist();
-  const isWishlisted = wishlist.includes(product.id);
+  const isWishlisted = wishlist.includes(String(product.id));
   const pagesPrefix = getPagesPrefix();
   const pathPrefix = getPathPrefix();
 
   const starsHTML = '★'.repeat(Math.floor(product.rating)) + (product.rating % 1 >= 0.5 ? '½' : '');
   const svgVisual = (typeof generateProductSVG === 'function') ? generateProductSVG(product.type, product.name.replace('PrintersVault ', ''), product.svgAccent) : '';
-  const visualHTML = product.image ? `<img src="${pathPrefix}${product.image}" alt="${product.name}" class="product-card-img" style="width: 100%; height: 200px; object-fit: contain; padding: 1rem;">` : svgVisual;
+  const visualHTML = product.image ? `<img src="${pathPrefix}${product.image}" alt="${product.name}" class="product-card-img" loading="lazy">` : svgVisual;
+
+  const metaTag = product.brand ? `${product.brand} • ${product.category}` : product.category;
 
   return `
     <div class="product-card" data-id="${product.id}">
@@ -165,30 +386,38 @@ function createProductCardHTML(product) {
           </svg>
         </button>
 
-        <a href="${pagesPrefix}product.html?id=${product.id}">
+        <a href="${pagesPrefix}product.html?id=${product.id}" class="card-img-link">
           ${visualHTML}
         </a>
       </div>
 
-      <div class="card-meta-category">${product.category}</div>
-      <h3 class="card-product-name">
-        <a href="${pagesPrefix}product.html?id=${product.id}">${product.name}</a>
-      </h3>
+      <div class="card-body">
+        <div class="card-meta-category">${metaTag}</div>
+        <h3 class="card-product-name">
+          <a href="${pagesPrefix}product.html?id=${product.id}">${product.name}</a>
+        </h3>
 
-      <div class="card-rating-row">
-        <span class="stars-gold">${starsHTML}</span>
-        <span style="font-weight: 700; color: #161616;">${product.rating}</span>
-        <span style="color: #6B6B6B;">(${product.reviews})</span>
+        <div class="card-rating-row">
+          <span class="stars-gold">${starsHTML}</span>
+          <span class="rating-num">${product.rating}</span>
+          <span class="rating-count">(${product.reviews})</span>
+        </div>
+
+        <div class="card-footer-row">
+          <div class="card-price-container">
+            <span class="price-main">${formatCurrency(product.price)}</span>
+            ${product.oldPrice ? `<span class="price-crossed">${formatCurrency(product.oldPrice)}</span>` : ''}
+          </div>
+
+          <button class="btn btn-primary btn-sm btn-block card-add-btn" onclick="addToCart('${product.id}')">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+            </svg>
+            Add to Cart
+          </button>
+        </div>
       </div>
-
-      <div class="card-price-container">
-        <span class="price-main">${formatCurrency(product.price)}</span>
-        ${product.oldPrice ? `<span class="price-crossed">${formatCurrency(product.oldPrice)}</span>` : ''}
-      </div>
-
-      <button class="btn btn-primary btn-sm btn-block" onclick="addToCart('${product.id}')">
-        Add to Cart
-      </button>
     </div>
   `;
 }
@@ -198,10 +427,41 @@ function handleWishlistClick(productId, buttonEl) {
   if (buttonEl) {
     if (isAdded) {
       buttonEl.classList.add('active');
-      buttonEl.querySelector('svg').setAttribute('fill', 'currentColor');
+      const svg = buttonEl.querySelector('svg');
+      if (svg) svg.setAttribute('fill', 'currentColor');
     } else {
       buttonEl.classList.remove('active');
-      buttonEl.querySelector('svg').setAttribute('fill', 'none');
+      const svg = buttonEl.querySelector('svg');
+      if (svg) svg.setAttribute('fill', 'none');
+    }
+  }
+  if (typeof renderWishlistPage === 'function') {
+    renderWishlistPage();
+  }
+}
+
+function handleDetailWishlist(productId, buttonEl) {
+  const isAdded = toggleWishlist(productId);
+  if (buttonEl) {
+    const svg = buttonEl.querySelector('svg');
+    if (isAdded) {
+      buttonEl.classList.add('active');
+      if (svg) svg.setAttribute('fill', 'currentColor');
+      for (let i = 0; i < buttonEl.childNodes.length; i++) {
+        if (buttonEl.childNodes[i].nodeType === 3) {
+          buttonEl.childNodes[i].textContent = ' Remove from Wishlist';
+          break;
+        }
+      }
+    } else {
+      buttonEl.classList.remove('active');
+      if (svg) svg.setAttribute('fill', 'none');
+      for (let i = 0; i < buttonEl.childNodes.length; i++) {
+        if (buttonEl.childNodes[i].nodeType === 3) {
+          buttonEl.childNodes[i].textContent = ' Add to Wishlist';
+          break;
+        }
+      }
     }
   }
 }

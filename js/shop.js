@@ -63,13 +63,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Search query filter
     if (searchQuery) {
-      const q = searchQuery.toLowerCase();
+      const q = searchQuery.trim().toLowerCase();
       result = result.filter(p => 
-        p.name.toLowerCase().includes(q) ||
-        p.category.toLowerCase().includes(q) ||
-        p.brand.toLowerCase().includes(q) ||
-        p.description.toLowerCase().includes(q) ||
-        p.sku.toLowerCase().includes(q)
+        (p.name && p.name.toLowerCase().includes(q)) ||
+        (p.category && p.category.toLowerCase().includes(q)) ||
+        (p.brand && p.brand.toLowerCase().includes(q)) ||
+        (p.type && p.type.toLowerCase().includes(q)) ||
+        (p.description && p.description.toLowerCase().includes(q)) ||
+        (p.sku && p.sku.toLowerCase().includes(q)) ||
+        (p.modelName && p.modelName.toLowerCase().includes(q))
       );
     }
 
@@ -137,13 +139,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (items.length === 0) {
       shopGrid.innerHTML = `
-        <div style="grid-column: 1 / -1; text-align: center; padding: 4rem 1rem;">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="1.5" style="margin-bottom: 1rem;">
-            <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-          </svg>
-          <h3 style="font-size: 1.35rem; margin-bottom: 0.5rem; color: #111;">No Products Found</h3>
-          <p style="color: #666; margin-bottom: 1.5rem;">Try adjusting your search query or clear sidebar filters.</p>
-          <button class="btn btn-outline" onclick="resetFilters()">Reset All Filters</button>
+        <div style="grid-column: 1 / -1; text-align: center; padding: 4rem 1rem; background: #FFFFFF; border: 1px solid var(--border, #E5E5E5); border-radius: 12px; margin-bottom: 2rem;">
+          <div style="width: 72px; height: 72px; border-radius: 50%; background-color: var(--surface, #FAFAFA); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; border: 1px solid var(--border, #E5E5E5);">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted, #666666)" stroke-width="1.75">
+              <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </div>
+          <h3 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem; color: var(--primary-black, #0F0F0E);">No products found</h3>
+          <p style="color: var(--text-muted, #666666); margin-bottom: 2rem; max-width: 450px; margin-left: auto; margin-right: auto; font-size: 0.95rem;">Try a different search term or browse our complete collection.</p>
+          <button class="btn btn-outline" onclick="resetFilters()">View All Products &rarr;</button>
         </div>
       `;
       return;

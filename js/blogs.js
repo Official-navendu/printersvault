@@ -12,11 +12,11 @@ const BLOGS = [
     date: "September 15, 2026",
     author: "PrintersVault Team",
     readTime: "5 min read",
-    image: "../images/hero.png",
+    image: "../images/blogs.png",
     content: `
       <p>Choosing the right printer is one of the most important hardware decisions for a home office, studio, or corporate workspace. With dozens of models featuring inkjet, laser, and refillable tank technologies, finding the perfect match depends on your daily page volume, document types, and total operating cost budget.</p>
       
-      <h3>1. Assess Your Monthly Print Volume</h3>
+      <h2>1. Assess Your Monthly Print Volume</h2>
       <p>Before looking at printer specifications, estimate how many pages you print each week:</p>
       <ul>
         <li><strong>Occasional Printing (10–50 pages/month):</strong> Standard wireless inkjet printers offer low initial costs and crisp photo printing capability.</li>
@@ -29,14 +29,14 @@ const BLOGS = [
         <p>If you primarily print text documents, shipping labels, and invoices, a monochrome laser printer offers faster output, instant dry time, and toner that never dries out, even if left idle for weeks.</p>
       </div>
 
-      <h3>2. Laser vs. Inkjet: Key Differences</h3>
+      <h2>2. Laser vs. Inkjet: Key Differences</h2>
       <p><strong>Laser Printers:</strong> Use heat to fuse powdered toner onto paper. They excel at sharp text, fast multi-page document printing, and long cartridge yields.</p>
       <p><strong>Inkjet Printers:</strong> Spray microscopic droplets of liquid ink. They are ideal for high-resolution photo printing, marketing materials, and vivid graphics.</p>
 
-      <h3>3. Must-Have Connectivity Features</h3>
+      <h2>3. Must-Have Connectivity Features</h2>
       <p>Modern printing workflows require seamless wireless connectivity across desktop computers, laptops, tablets, and smartphones. Look for dual-band Wi-Fi (2.4GHz / 5GHz), Apple AirPrint, Mopria Print Service, and Wi-Fi Direct for printing without a router.</p>
 
-      <h3>Conclusion</h3>
+      <h3>Summary Recommendations</h3>
       <p>Investing in the right printer balances upfront price with ongoing cartridge costs. Explore PrintersVault's curated printer collection to find reliable models backed by full manufacturer specifications and support.</p>
     `
   },
@@ -48,11 +48,11 @@ const BLOGS = [
     date: "September 10, 2026",
     author: "Technical Support",
     readTime: "4 min read",
-    image: "../images/build.png",
+    image: "../images/blogs.png",
     content: `
       <p>Understanding cost-per-page (CPP) is the key to managing long-term printing expenses. While an entry-level inkjet printer might seem like a bargain, replacement cartridges can quickly add up if you print frequently.</p>
       
-      <h3>Calculating Cost Per Page</h3>
+      <h2>Calculating Cost Per Page</h2>
       <p>To calculate CPP, divide the price of the ink or toner cartridge by its estimated page yield. For example:</p>
       <ul>
         <li>Standard Ink Cartridge: $30 ÷ 300 pages = <strong>10.0 cents per page</strong></li>
@@ -64,10 +64,10 @@ const BLOGS = [
         <p>High-yield XL cartridges typically provide 2x to 3x more printed pages for only a 30% to 50% increase in cartridge cost.</p>
       </div>
 
-      <h3>When to Choose Toner</h3>
+      <h2>When to Choose Toner</h2>
       <p>If your office prints text-heavy reports, contracts, or shipping documentation daily, toner cartridges provide reliable output without the risk of printhead clogging or dry-out during downtime.</p>
 
-      <h3>When to Choose Pigment Ink</h3>
+      <h2>When to Choose Pigment Ink</h2>
       <p>For vibrant color proofing and water-resistant document printing, high-capacity pigment ink bottles and XL cartridges deliver professional graphics with smudge-proof archival quality.</p>
     `
   },
@@ -79,20 +79,20 @@ const BLOGS = [
     date: "September 04, 2026",
     author: "PrintersVault Team",
     readTime: "6 min read",
-    image: "../images/ESSENTIALS.png",
+    image: "../images/blogs.png",
     content: `
       <p>Paper jams are one of the most common workplace print interruptions. Fortunately, over 90% of paper misfeeds can be prevented with simple storage and tray handling practices.</p>
 
-      <h3>1. Store Paper in a Cool, Dry Place</h3>
+      <h2>1. Store Paper in a Cool, Dry Place</h2>
       <p>Paper absorbs ambient moisture easily, causing individual sheets to stick together. Keep unused paper sealed in its original moisture-resistant wrapper until loaded into the printer tray.</p>
 
-      <h3>2. Fan the Paper Stack Before Loading</h3>
+      <h2>2. Fan the Paper Stack Before Loading</h2>
       <p>Before sliding a fresh stack of paper into the tray, flex and fan the edges to eliminate static electricity between sheets.</p>
 
-      <h3>3. Respect Tray Capacity Guides</h3>
+      <h2>3. Respect Tray Capacity Guides</h2>
       <p>Never overload the paper tray beyond the maximum fill line indicated on the tray guides. Overfilling exerts excessive pressure on feed rollers.</p>
 
-      <h3>4. Clean Rubber Pickup Rollers Regularly</h3>
+      <h2>4. Clean Rubber Pickup Rollers Regularly</h2>
       <p>Dust and paper fiber accumulate on rubber pickup rollers over time, reducing traction. Wipe rollers gently with a lint-free cloth dampened with distilled water every few months.</p>
     `
   },
@@ -104,17 +104,17 @@ const BLOGS = [
     date: "August 28, 2026",
     author: "Network Specialist",
     readTime: "5 min read",
-    image: "../images/how-it-works.png",
+    image: "../images/blogs.png",
     content: `
       <p>Wireless printing frees your workspace from cable clutter and allows every employee or family member to print seamlessly from any laptop, tablet, or mobile phone.</p>
 
-      <h3>1. Connecting via Wi-Fi Protected Setup (WPS)</h3>
+      <h2>1. Connecting via Wi-Fi Protected Setup (WPS)</h2>
       <p>If your wireless router has a WPS button, press it, then press the WPS button on your printer within 2 minutes for instant, secure network pairing.</p>
 
-      <h3>2. Mobile Printing with Apple AirPrint & Android Direct Print</h3>
+      <h2>2. Mobile Printing with Apple AirPrint & Android Direct Print</h2>
       <p>Modern wireless printers built for PrintersVault support native driverless printing from iPhones, iPads, and Android smartphones connected to the same Wi-Fi network.</p>
 
-      <h3>3. Assigning a Static IP Address</h3>
+      <h2>3. Assigning a Static IP Address</h2>
       <p>For office networks, assigning a static IP address to your network printer prevents connectivity drops when router DHCP leases renew.</p>
     `
   },
@@ -126,11 +126,11 @@ const BLOGS = [
     date: "August 20, 2026",
     author: "PrintersVault Team",
     readTime: "4 min read",
-    image: "../images/build.png",
+    image: "../images/blogs.png",
     content: `
       <p>When purchasing replacement cartridges for home or commercial printers, choosing High-Yield (XL) or Extra High-Yield (XXL) cartridges significantly reduces operational expenses.</p>
 
-      <h3>Fewer Replacements, Less Downtime</h3>
+      <h2>Fewer Replacements, Less Downtime</h2>
       <p>High-yield cartridges hold more ink or toner in the same physical shell dimensions. This means fewer ordering cycles, less packaging waste, and fewer interruptions during major print jobs.</p>
     `
   },
@@ -142,11 +142,11 @@ const BLOGS = [
     date: "August 12, 2026",
     author: "Workspace Specialist",
     readTime: "5 min read",
-    image: "../images/ESSENTIALS.png",
+    image: "../images/blogs.png",
     content: `
       <p>Maxing out your printing setup goes beyond the base printer unit. The right accessories optimize speed, network stability, and paper capacity.</p>
 
-      <h3>High-Speed Shielded Cables</h3>
+      <h2>High-Speed Shielded Cables</h2>
       <p>For high-resolution graphics and heavy PDF transfers, shielded USB 2.0/3.0 printer cables prevent data drops and print spool errors.</p>
     `
   }
@@ -161,6 +161,40 @@ function getAssetPrefix() {
 function getPagesPrefix() {
   const path = window.location.pathname;
   return (path.includes('/pages/') || path.endsWith('/pages')) ? '' : 'pages/';
+}
+
+// Global Copy Link handler
+function copyArticleLink() {
+  const url = window.location.href;
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(url).then(() => {
+      if (typeof showToast === 'function') {
+        showToast('Article link copied to clipboard.', 'success');
+      } else {
+        alert('Article link copied to clipboard.');
+      }
+    }).catch(() => fallbackCopyText(url));
+  } else {
+    fallbackCopyText(url);
+  }
+}
+
+function fallbackCopyText(text) {
+  const textArea = document.createElement("textarea");
+  textArea.value = text;
+  document.body.appendChild(textArea);
+  textArea.select();
+  try {
+    document.execCommand('copy');
+    if (typeof showToast === 'function') {
+      showToast('Article link copied to clipboard.', 'success');
+    }
+  } catch (err) {}
+  document.body.removeChild(textArea);
+}
+
+if (typeof window !== 'undefined') {
+  window.copyArticleLink = copyArticleLink;
 }
 
 // Render Blog Listing on pages/blog.html
@@ -224,66 +258,178 @@ function initBlogDetails() {
   if (!container) return;
 
   const params = new URLSearchParams(window.location.search);
-  const blogId = params.get('id') || 'printer-buying-guide';
-  const blog = BLOGS.find(b => b.id === blogId) || BLOGS[0];
-
+  const blogId = params.get('id');
   const pagesPrefix = getPagesPrefix();
 
-  // Document Title
+  // Find target blog
+  const blog = blogId ? BLOGS.find(b => b.id === blogId) : null;
+
+  // INVALID ARTICLE FALLBACK
+  if (!blog) {
+    document.title = "Article Not Found | PrintersVault Blog";
+
+    container.innerHTML = `
+      <div class="blog-not-found-card">
+        <div class="blog-not-found-icon">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+          </svg>
+        </div>
+        <h1 class="blog-not-found-title">Article Not Found</h1>
+        <p class="blog-not-found-desc">The blog article you're looking for could not be found.</p>
+        <a href="${pagesPrefix}blog.html" class="btn btn-primary">&larr; Back to Blogs</a>
+      </div>
+    `;
+    return;
+  }
+
+  // DYNAMIC SEO & META UPDATES
   document.title = `${blog.title} | PrintersVault Blog`;
 
-  // Related articles (other than current)
-  const related = BLOGS.filter(b => b.id !== blog.id).slice(0, 3);
+  const metaDesc = document.getElementById('metaDescription');
+  if (metaDesc) metaDesc.setAttribute('content', blog.excerpt);
+
+  const ogTitle = document.getElementById('ogTitle');
+  if (ogTitle) ogTitle.setAttribute('content', `${blog.title} | PrintersVault Blog`);
+
+  const ogDesc = document.getElementById('ogDescription');
+  if (ogDesc) ogDesc.setAttribute('content', blog.excerpt);
+
+  const ogImage = document.getElementById('ogImage');
+  if (ogImage) ogImage.setAttribute('content', blog.image);
+
+  const currentUrl = window.location.href;
+  const ogUrl = document.getElementById('ogUrl');
+  if (ogUrl) ogUrl.setAttribute('content', currentUrl);
+
+  const canonicalUrl = document.getElementById('canonicalUrl');
+  if (canonicalUrl) canonicalUrl.setAttribute('href', currentUrl);
+
+  const breadcrumbTitle = document.getElementById('breadcrumb-title');
+  if (breadcrumbTitle) breadcrumbTitle.textContent = blog.title;
+
+  // Dynamic Related Articles Selection:
+  // 1. Exclude current article
+  // 2. Prioritize articles in same category
+  // 3. Fill remaining slots with other articles
+  const otherBlogs = BLOGS.filter(b => b.id !== blog.id);
+  const sameCatBlogs = otherBlogs.filter(b => b.category === blog.category);
+  const diffCatBlogs = otherBlogs.filter(b => b.category !== blog.category);
+  const related = [...sameCatBlogs, ...diffCatBlogs].slice(0, 3);
+
+  // Social Sharer URLs
+  const fbShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl)}`;
+  const twitterShareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(currentUrl)}&text=${encodeURIComponent(blog.title)}`;
+  const linkedInShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(currentUrl)}`;
 
   container.innerHTML = `
-    <!-- Back Link & Header -->
-    <div style="margin-bottom: 2rem;">
-      <a href="${pagesPrefix}blog.html" style="display: inline-flex; align-items: center; gap: 0.5rem; font-weight: 800; color: var(--primary); font-size: 0.9rem; margin-bottom: 1.5rem; text-decoration: none;">
-        &larr; Back to All Articles
+    <!-- Editorial Hero Header -->
+    <div class="blog-details-hero">
+      <a href="${pagesPrefix}blog.html" class="blog-back-link">
+        &larr; Back to Blogs
       </a>
-      <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
-        <span class="blog-card-category" style="position: static;">${blog.category}</span>
-        <span style="font-size: 0.85rem; color: var(--text-muted);">${blog.date}</span>
-        <span style="font-size: 0.85rem; color: var(--text-muted);">• ${blog.readTime}</span>
-      </div>
-      <h1 style="font-size: clamp(2rem, 3.5vw, 2.75rem); font-weight: 900; color: #111111; line-height: 1.2; margin-bottom: 1rem;">
-        ${blog.title}
-      </h1>
-      <div style="display: flex; align-items: center; gap: 0.75rem; font-size: 0.9rem; color: var(--text-muted);">
+      
+      <div class="blog-details-category">${blog.category}</div>
+      
+      <h1 class="blog-details-title">${blog.title}</h1>
+      
+      <p class="blog-details-excerpt">${blog.excerpt}</p>
+      
+      <div class="blog-details-meta">
+        <span>Published ${blog.date}</span>
+        <span class="meta-dot">•</span>
         <span>By <strong>${blog.author}</strong></span>
+        <span class="meta-dot">•</span>
+        <span>${blog.readTime}</span>
       </div>
     </div>
 
-    <!-- Featured Image with Corner Red Frame Treatment -->
-    <div class="split-ref-img-wrapper" style="max-width: 100%; margin-bottom: 3rem;">
-      <div class="red-accent-top-left"></div>
-      <div class="red-accent-bottom-right"></div>
-      <div class="red-dots-matrix-left"></div>
-      <div class="split-ref-img-box" style="aspect-ratio: 21 / 9;">
-        <img src="${blog.image}" alt="${blog.title}" class="split-ref-img" style="height: 100%; object-fit: cover;">
-      </div>
+    <!-- Featured Image -->
+    <div class="blog-featured-image-wrap">
+      <img src="${blog.image}" alt="${blog.title}" class="blog-featured-image">
     </div>
 
-    <!-- Article Body -->
-    <div class="article-body-content" style="max-width: 840px; margin: 0 auto 4rem auto;">
-      ${blog.content}
+    <!-- 2-Column Article & Sidebar Layout -->
+    <div class="blog-details-grid">
+      <!-- Main Content Column -->
+      <article class="blog-article-content">
+        ${blog.content}
+      </article>
+
+      <!-- Compact Sidebar Column -->
+      <aside class="blog-sidebar">
+        <!-- Info Box -->
+        <div class="blog-sidebar-box">
+          <h4 class="blog-sidebar-heading">Article Details</h4>
+          <div class="blog-sidebar-info-row">
+            <span class="info-label">Category</span>
+            <span class="info-val">${blog.category}</span>
+          </div>
+          <div class="blog-sidebar-info-row">
+            <span class="info-label">Published</span>
+            <span class="info-val">${blog.date}</span>
+          </div>
+          <div class="blog-sidebar-info-row">
+            <span class="info-label">Author</span>
+            <span class="info-val">${blog.author}</span>
+          </div>
+          <div class="blog-sidebar-info-row">
+            <span class="info-label">Reading Time</span>
+            <span class="info-val">${blog.readTime}</span>
+          </div>
+        </div>
+
+        <!-- Share Box -->
+        <div class="blog-sidebar-box">
+          <h4 class="blog-sidebar-heading">Share Article</h4>
+          <div class="blog-share-list">
+            <a href="${fbShareUrl}" target="_blank" rel="noopener noreferrer" class="blog-share-btn" aria-label="Share on Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
+              <span>Facebook</span>
+            </a>
+            <a href="${twitterShareUrl}" target="_blank" rel="noopener noreferrer" class="blog-share-btn" aria-label="Share on X Twitter">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+              <span>X / Twitter</span>
+            </a>
+            <a href="${linkedInShareUrl}" target="_blank" rel="noopener noreferrer" class="blog-share-btn" aria-label="Share on LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+            <button type="button" class="blog-share-btn blog-copy-link-btn" onclick="copyArticleLink()" aria-label="Copy Article Link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+              </svg>
+              <span>Copy Link</span>
+            </button>
+          </div>
+        </div>
+      </aside>
     </div>
 
     <!-- Related Articles Section -->
-    <div style="border-top: 1px solid var(--border); padding-top: 3.5rem; margin-top: 3.5rem;">
-      <h3 style="font-size: 1.5rem; font-weight: 800; color: #111111; margin-bottom: 2rem; text-align: center;">
-        Related Articles
-      </h3>
-      <div class="about-offer-grid" style="grid-template-columns: repeat(3, 1fr);">
+    <div class="related-articles-section">
+      <h3 class="related-articles-title">RELATED ARTICLES</h3>
+      <div class="related-articles-grid">
         ${related.map(r => `
-          <a href="${pagesPrefix}blog-details.html?id=${r.id}" class="blog-card" style="text-decoration: none;">
-            <div class="blog-card-img-wrap" style="height: 160px;">
-              <img src="${r.image}" alt="${r.title}" class="blog-card-img">
-              <span class="blog-card-category">${r.category}</span>
+          <a href="${pagesPrefix}blog-details.html?id=${r.id}" class="related-article-card">
+            <div class="related-card-img-wrap">
+              <img src="${r.image}" alt="${r.title}" class="related-card-img">
+              <span class="related-card-category">${r.category}</span>
             </div>
-            <div class="blog-card-content" style="padding: 1.25rem;">
-              <h4 style="font-size: 1rem; font-weight: 800; color: #111111; line-height: 1.35; margin-bottom: 0.5rem;">${r.title}</h4>
-              <span style="font-size: 0.8rem; font-weight: 800; color: var(--primary);">Read Article &rarr;</span>
+            <div class="related-card-body">
+              <div class="related-card-meta">${r.date || ''} • ${r.readTime || ''}</div>
+              <h4 class="related-card-title">${r.title}</h4>
+              <span class="related-card-link">Read Article &rarr;</span>
             </div>
           </a>
         `).join('')}

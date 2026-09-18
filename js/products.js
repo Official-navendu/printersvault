@@ -23,7 +23,7 @@ const PRODUCTS = [
     "printTech": "Monochrome Laser",
     "type": "printer",
     "svgAccent": "#2563EB",
-    "image": "images/build.png",
+    "image": "images/products/brother-dcp-l2640dw-compact-wireless-black-white-laser-printer.jpg",
     "description": "The Brother DCP-L2640DW offers reliable, fast monochrome laser printing, copy and scan functions. Designed for compact home office environments with wireless connectivity and automatic duplex printing.",
     "features": [
       "Print speeds up to 36 pages per minute",
@@ -62,7 +62,7 @@ const PRODUCTS = [
     "printTech": "Monochrome Laser",
     "type": "printer",
     "svgAccent": "#2563EB",
-    "image": "images/build.png",
+    "image": "images/products/brother-hl-l2405w-compact-wireless-black-white-laser-printer.jpg",
     "description": "An affordable, compact wireless black and white laser printer engineered for fast document printing with crisp text output.",
     "features": [
       "Print speeds up to 30 ppm",
@@ -100,7 +100,7 @@ const PRODUCTS = [
     "printTech": "Monochrome Laser",
     "type": "printer",
     "svgAccent": "#2563EB",
-    "image": "images/build.png",
+    "image": "images/products/brother-mfc-l2820dw-compact-wireless-black-white-printer.jpg",
     "description": "Compact wireless monochrome laser all-in-one printer featuring a 2.7-inch color touchscreen, 50-sheet automatic document feeder, and robust wireless printing.",
     "features": [
       "Fast print speeds up to 34 ppm",
@@ -138,7 +138,7 @@ const PRODUCTS = [
     "printTech": "Color Digital Laser",
     "type": "printer",
     "svgAccent": "#2563EB",
-    "image": "images/build.png",
+    "image": "images/products/brother-mfc-l3720cdw-wireless-color-laser-printer.jpg",
     "description": "Delivers vibrant digital color printing, copying, scanning, and faxing. Equipped with wireless networking and automatic two-sided printing for efficient workflow.",
     "features": [
       "Print speeds up to 19 ppm (Color & Black)",
@@ -176,7 +176,7 @@ const PRODUCTS = [
     "printTech": "Color Digital Laser",
     "type": "printer",
     "svgAccent": "#2563EB",
-    "image": "images/build.png",
+    "image": "images/products/brother-mfc-l3780cdw-wireless-color-laser-printer.jpg",
     "description": "High-performance wireless color laser printer with advanced security options, fast print speeds, single-pass duplex scanning, and NFC tap-to-print capability.",
     "features": [
       "Print speeds up to 31 ppm color and monochrome",
@@ -214,7 +214,7 @@ const PRODUCTS = [
     "printTech": "Color Inkjet",
     "type": "printer",
     "svgAccent": "#2563EB",
-    "image": "images/build.png",
+    "image": "images/products/brother-work-smart-wireless-color-all-in-one-inkjet-printer.jpg",
     "description": "Versatile, compact wireless color inkjet printer designed for home office needs with mobile printing support and low-cost page yield.",
     "features": [
       "Wireless printing from smartphone, tablet, laptop",
@@ -234,44 +234,6 @@ const PRODUCTS = [
     "slug": "brother-work-smart-wireless-color-all-in-one-inkjet-printer"
   },
   {
-    "id": "PV-007",
-    "numericId": 7,
-    "sku": "PV-007",
-    "name": "Brother MFC-L2710DW Compact Wireless Monochrome Laser All-In-One Printer",
-    "category": "Laser Printers",
-    "brand": "Brother",
-    "price": 229.99,
-    "oldPrice": 249.99,
-    "regularPrice": 249.99,
-    "salePrice": 229.99,
-    "discount": 8,
-    "rating": "4.7",
-    "reviews": 94,
-    "badge": "Laser Pro",
-    "stock": true,
-    "printTech": "Monochrome Laser",
-    "type": "printer",
-    "svgAccent": "#2563EB",
-    "image": "images/build.png",
-    "description": "Reliable monochrome laser all-in-one printer with 50-sheet ADF, automatic duplexing, and versatile wireless connectivity options.",
-    "features": [
-      "Print speeds up to 32 ppm",
-      "50-sheet capacity automatic document feeder",
-      "250-sheet paper capacity",
-      "Multi-page copying and faxing"
-    ],
-    "specifications": {
-      "Print Technology": "Monochrome Laser",
-      "Functions": "Print, Copy, Scan, Fax",
-      "Brand": "Brother",
-      "Category": "Laser Printers",
-      "Connectivity": "Wireless (Wi-Fi), USB 2.0, Mobile App Support",
-      "Duplex Printing": "Manual",
-      "Paper Handling": "50-sheet capacity automatic document feeder"
-    },
-    "slug": "brother-mfc-l2710dw-compact-wireless-monochrome-laser-all-in-one-printer"
-  },
-  {
     "id": "PV-008",
     "numericId": 8,
     "sku": "PV-008",
@@ -289,8 +251,8 @@ const PRODUCTS = [
     "stock": true,
     "printTech": "Monochrome Laser",
     "type": "printer",
-    "svgAccent": "#E30613",
-    "image": "images/build.png",
+    "svgAccent": "#C90A0E",
+    "image": "images/products/canon-imageclass-d1650-wireless-monochrome-laser-multifunction-printer.jpg",
     "description": "Heavy-duty commercial monochrome laser multifunction printer designed for high-volume workgroups requiring ultra-fast print speeds and expandable paper capacity.",
     "features": [
       "Print speeds up to 45 ppm",
@@ -327,8 +289,8 @@ const PRODUCTS = [
     "stock": true,
     "printTech": "Color Laser",
     "type": "printer",
-    "svgAccent": "#E30613",
-    "image": "images/build.png",
+    "svgAccent": "#C90A0E",
+    "image": "images/products/canon-imageclass-mf753cdw-wireless-color-laser-printer.jpg",
     "description": "Feature-rich color laser printer built for small to mid-size businesses. Provides brilliant color output, single-pass duplex scanning, and application library custom shortcuts.",
     "features": [
       "Print speeds up to 35 ppm color/monochrome",
@@ -365,8 +327,8 @@ const PRODUCTS = [
     "stock": true,
     "printTech": "Color MegaTank Inkjet",
     "type": "printer",
-    "svgAccent": "#E30613",
-    "image": "images/products/canon-pixma-megatank-g6020.png",
+    "svgAccent": "#C90A0E",
+    "image": "images/products/canon-maxify-gx1020-wireless-color-inkjet-printer-all-in-one-supertank.jpg",
     "description": "High-volume Supertank printer featuring refillable ink tanks that deliver extremely low cost per page and sharp business document clarity.",
     "features": [
       "High-yield refillable MegaTank system",
@@ -403,8 +365,8 @@ const PRODUCTS = [
     "stock": true,
     "printTech": "Color MegaTank Inkjet",
     "type": "printer",
-    "svgAccent": "#E30613",
-    "image": "images/products/canon-pixma-megatank-g6020.png",
+    "svgAccent": "#C90A0E",
+    "image": "images/products/canon-pixma-megatank-g3270-bk-wireless-color-inkjet-printer-all-in-one-supertank.jpg",
     "description": "Easy-to-use MegaTank all-in-one printer offering huge ink savings, high page yields up to 6,000 black / 7,700 color pages, and wireless smartphone printing.",
     "features": [
       "Massive ink savings with integrated tanks",
@@ -441,8 +403,8 @@ const PRODUCTS = [
     "stock": true,
     "printTech": "Color MegaTank Inkjet",
     "type": "printer",
-    "svgAccent": "#E30613",
-    "image": "images/products/canon-pixma-megatank-g6020.png",
+    "svgAccent": "#C90A0E",
+    "image": "images/products/canon-pixma-megatank-g6020-wireless-color-inkjet-printer-all-in-one-supertank.jpg",
     "description": "Multi-function MegaTank printer with 350-sheet plain paper capacity, auto 2-sided printing, and voice-activated assistant printing support.",
     "features": [
       "350-sheet total plain paper capacity",
@@ -479,8 +441,8 @@ const PRODUCTS = [
     "stock": true,
     "printTech": "Color Inkjet",
     "type": "printer",
-    "svgAccent": "#E30613",
-    "image": "images/products/canon-pixma-megatank-g6020.png",
+    "svgAccent": "#C90A0E",
+    "image": "images/products/canon-pixma-tr4720-wireless-color-inkjet-printer-all-in-one.jpg",
     "description": "Compact wireless all-in-one printer with 20-sheet ADF, auto 2-sided printing, and intuitive setup via the Canon PRINT app.",
     "features": [
       "All-in-One: Print, Copy, Scan, Fax",
@@ -517,8 +479,8 @@ const PRODUCTS = [
     "stock": true,
     "printTech": "Color Inkjet",
     "type": "printer",
-    "svgAccent": "#E30613",
-    "image": "images/products/canon-pixma-megatank-g6020.png",
+    "svgAccent": "#C90A0E",
+    "image": "images/products/canon-pixma-tr8620a-wireless-color-inkjet-printer-all-in-one.jpg",
     "description": "Home office all-in-one printer featuring a 4.3-inch LCD touchscreen, front/rear paper feeding, memory card slot, and 20-sheet ADF.",
     "features": [
       "4.3-inch intuitive LCD touchscreen",
@@ -555,8 +517,8 @@ const PRODUCTS = [
     "stock": true,
     "printTech": "Color Inkjet",
     "type": "printer",
-    "svgAccent": "#E30613",
-    "image": "images/products/canon-pixma-megatank-g6020.png",
+    "svgAccent": "#C90A0E",
+    "image": "images/products/canon-pixma-ts7720-wireless-color-inkjet-printer-all-in-one.jpg",
     "description": "Sleek and efficient wireless printer engineered for fast document printing, clear photo output, and smooth UI touchscreen navigation.",
     "features": [
       "Fast print speeds: 15 ipm black / 10 ipm color",
@@ -593,8 +555,8 @@ const PRODUCTS = [
     "stock": true,
     "printTech": "Color Inkjet",
     "type": "printer",
-    "svgAccent": "#E30613",
-    "image": "images/products/canon-pixma-megatank-g6020.png",
+    "svgAccent": "#C90A0E",
+    "image": "images/products/canon-pixma-ts3520-wireless-color-all-in-one-inkjet-printer.jpg",
     "description": "Simple, easy-to-use wireless all-in-one printer designed for everyday basic document and photo printing.",
     "features": [
       "1.5-inch segment LCD screen",
@@ -632,7 +594,7 @@ const PRODUCTS = [
     "printTech": "Cartridge-Free EcoTank",
     "type": "printer",
     "svgAccent": "#0284C7",
-    "image": "images/products/canon-pixma-megatank-g6020.png",
+    "image": "images/products/epson-ecotank-et-2800-wireless-color-inkjet-printer-all-in-one-supertank.jpg",
     "description": "Innovative cartridge-free Supertank printer using high-capacity refillable ink tanks. Includes up to 2 years of ink in the box for low-cost printing.",
     "features": [
       "Cartridge-free printing with high-capacity tanks",
@@ -670,7 +632,7 @@ const PRODUCTS = [
     "printTech": "Cartridge-Free EcoTank",
     "type": "printer",
     "svgAccent": "#0284C7",
-    "image": "images/products/canon-pixma-megatank-g6020.png",
+    "image": "images/products/epson-ecotank-et-2980-wireless-all-in-one-color-supertank-printer.jpg",
     "description": "Modern color Supertank printer with auto 2-sided printing, color display, and hands-free voice-activated printing capability.",
     "features": [
       "Automatic 2-sided duplex printing",
@@ -708,7 +670,7 @@ const PRODUCTS = [
     "printTech": "PrecisionCore EcoTank",
     "type": "printer",
     "svgAccent": "#0284C7",
-    "image": "images/products/canon-pixma-megatank-g6020.png",
+    "image": "images/products/epson-ecotank-et-3950-wireless-all-in-one-color-supertank-printer-white.jpg",
     "description": "Premium white EcoTank printer powered by PrecisionCore Heat-Free technology. Offers 250-sheet paper capacity, auto 2-sided printing, and ADF.",
     "features": [
       "PrecisionCore Heat-Free technology",
@@ -746,7 +708,7 @@ const PRODUCTS = [
     "printTech": "PrecisionCore EcoTank",
     "type": "printer",
     "svgAccent": "#0284C7",
-    "image": "images/products/canon-pixma-megatank-g6020.png",
+    "image": "images/products/epson-ecotank-et-4950-wireless-all-in-one-color-supertank-printer.jpg",
     "description": "Heavy-duty business Supertank printer with fax, Ethernet, auto 2-sided scanning/printing, and high-yield ink capacity.",
     "features": [
       "Auto 2-sided printing & 30-sheet ADF",
@@ -784,7 +746,7 @@ const PRODUCTS = [
     "printTech": "6-Color Claria ET Premium",
     "type": "printer",
     "svgAccent": "#0284C7",
-    "image": "images/build.png",
+    "image": "images/products/epson-ecotank-photo-et-8550-wireless-color-inkjet-printer-wide-format.jpg",
     "description": "Versatile wide-format photo Supertank printer capable of printing borderless photos up to 13x19 inches with 6-color pigment & dye inks.",
     "features": [
       "Wide-format borderless photo printing up to 13x19\"",
@@ -822,7 +784,7 @@ const PRODUCTS = [
     "printTech": "Color Inkjet",
     "type": "printer",
     "svgAccent": "#0284C7",
-    "image": "images/build.png",
+    "image": "images/products/epson-expression-home-xp-4200-wireless-color-inkjet-printer.jpg",
     "description": "Compact wireless all-in-one printer with 2.4-inch color LCD, auto 2-sided printing, and instant hands-free voice printing.",
     "features": [
       "Auto 2-sided printing",
@@ -860,7 +822,7 @@ const PRODUCTS = [
     "printTech": "5-Color Inkjet",
     "type": "printer",
     "svgAccent": "#0284C7",
-    "image": "images/build.png",
+    "image": "images/products/epson-expression-premium-xp-7100-wireless-color-inkjet-printer.jpg",
     "description": "Premium photo all-in-one printer with 30-sheet auto document feeder, 4.3-inch touchscreen, and dedicated photo paper tray.",
     "features": [
       "5-color ink set for vivid photos & sharp text",
@@ -898,7 +860,7 @@ const PRODUCTS = [
     "printTech": "PrecisionCore Inkjet",
     "type": "printer",
     "svgAccent": "#0284C7",
-    "image": "images/build.png",
+    "image": "images/products/epson-workforce-pro-wf-3820-wireless-color-inkjet-printer.jpg",
     "description": "High-speed business inkjet printer engineered for heavy workloads with PrecisionCore technology, 250-sheet tray, and 2.7-inch touchscreen.",
     "features": [
       "Print speeds: 21 black / 11 color ppm",
@@ -936,7 +898,7 @@ const PRODUCTS = [
     "printTech": "Cartridge-Free EcoTank",
     "type": "printer",
     "svgAccent": "#0284C7",
-    "image": "images/products/canon-pixma-megatank-g6020.png",
+    "image": "images/products/epson-ecotank-et-2850-wireless-color-all-in-one-cartridge-free-supertank-printer.jpg",
     "description": "Efficient Supertank printer featuring automatic two-sided printing, high-resolution flatbed scanner, and EcoFit bottle system.",
     "features": [
       "Auto 2-sided duplex printing",
@@ -974,7 +936,7 @@ const PRODUCTS = [
     "printTech": "Color Inkjet",
     "type": "printer",
     "svgAccent": "#059669",
-    "image": "images/build.png",
+    "image": "images/products/hp-deskjet-2855e-wireless-color-all-in-one-printer-scan-copy.jpg",
     "description": "Compact wireless color all-in-one printer for essential home document printing with HP app mobile printing.",
     "features": [
       "Print, copy, and scan capabilities",
@@ -1012,7 +974,7 @@ const PRODUCTS = [
     "printTech": "Color Inkjet",
     "type": "printer",
     "svgAccent": "#059669",
-    "image": "images/build.png",
+    "image": "images/products/hp-deskjet-4255e-wireless-color-all-in-one-printer-scan-copy.jpg",
     "description": "Upgraded DeskJet printer featuring a 35-sheet auto document feeder for multi-page copying and scanning convenience.",
     "features": [
       "35-sheet automatic document feeder",
@@ -1050,7 +1012,7 @@ const PRODUCTS = [
     "printTech": "Color Inkjet",
     "type": "printer",
     "svgAccent": "#059669",
-    "image": "images/build.png",
+    "image": "images/products/hp-envy-6155e-wireless-color-all-in-one-printer-scan-copy.jpg",
     "description": "Stylish home printer designed for borderless photo printing, auto 2-sided document printing, and quiet mode operation.",
     "features": [
       "Automatic 2-sided duplex printing",
@@ -1088,7 +1050,7 @@ const PRODUCTS = [
     "printTech": "Color Inkjet",
     "type": "printer",
     "svgAccent": "#059669",
-    "image": "images/build.png",
+    "image": "images/products/hp-envy-6555e-wireless-color-all-in-one-printer-scan-copy.jpg",
     "description": "Advanced Envy home printer with dedicated photo tray, auto 2-sided printing, and vibrant true-to-life photo color output.",
     "features": [
       "Built-in photo tray for 4x6 photo paper",
@@ -1126,7 +1088,7 @@ const PRODUCTS = [
     "printTech": "Color Inkjet",
     "type": "printer",
     "svgAccent": "#059669",
-    "image": "images/build.png",
+    "image": "images/products/hp-envy-inspire-7255e-wireless-color-all-in-one-printer-scan-copy.jpg",
     "description": "Versatile family printer featuring custom photo features, square and 2-sided photo printing, and dual-band Wi-Fi connection.",
     "features": [
       "Built-in photo tray & 2-sided photo printing",
@@ -1164,7 +1126,7 @@ const PRODUCTS = [
     "printTech": "Monochrome Laser",
     "type": "printer",
     "svgAccent": "#059669",
-    "image": "images/build.png",
+    "image": "images/products/hp-laserjet-mfp-m140w-wireless-black-white-all-in-one-laser-printer.jpg",
     "description": "Ultra-compact wireless black and white laser all-in-one printer. Perfect for tight office spaces needing fast laser quality printing and copying.",
     "features": [
       "World's smallest laser printer in its class",
@@ -1202,7 +1164,7 @@ const PRODUCTS = [
     "printTech": "Monochrome Laser",
     "type": "printer",
     "svgAccent": "#059669",
-    "image": "images/build.png",
+    "image": "images/products/hp-laserjet-pro-3001dw-wireless-black-white-laser-printer.jpg",
     "description": "Business-class monochrome laser printer built for speed, robust security management, and dual-sided high-speed printing.",
     "features": [
       "Fast print speeds up to 35 ppm",
@@ -1240,7 +1202,7 @@ const PRODUCTS = [
     "printTech": "Color Laser",
     "type": "printer",
     "svgAccent": "#059669",
-    "image": "images/build.png",
+    "image": "images/products/hp-laserjet-pro-3201dw-wireless-color-laser-printer.jpg",
     "description": "Compact wireless color laser printer delivering sharp text and vivid color business graphics for small workgroups.",
     "features": [
       "Print speeds up to 26 ppm color & black",
@@ -1278,7 +1240,7 @@ const PRODUCTS = [
     "printTech": "Color Laser",
     "type": "printer",
     "svgAccent": "#059669",
-    "image": "images/build.png",
+    "image": "images/products/hp-laserjet-pro-ljp-4201dn-color-laser-printer.jpg",
     "description": "High-performance enterprise color laser printer designed for demanding offices with heavy monthly printing requirements.",
     "features": [
       "Blazing speeds up to 35 ppm color & black",
@@ -1316,7 +1278,7 @@ const PRODUCTS = [
     "printTech": "Color Laser",
     "type": "printer",
     "svgAccent": "#059669",
-    "image": "images/build.png",
+    "image": "images/products/hp-laserjet-pro-mfp-4301fdw-wireless-color-all-in-one-laser-printer.jpg",
     "description": "Flagship commercial color laser all-in-one printer featuring 35 ppm print speed, 4.3-inch touchscreen, and single-pass duplex scanning.",
     "features": [
       "Print, Copy, Scan, Fax all-in-one functionality",
@@ -1354,7 +1316,7 @@ const PRODUCTS = [
     "printTech": "Thermal Inkjet",
     "type": "printer",
     "svgAccent": "#059669",
-    "image": "images/build.png",
+    "image": "images/products/hp-officejet-pro-8125e-wireless-color-all-in-one-printer-scan-copy.jpg",
     "description": "Reliable small office inkjet printer with fast print speeds, auto 2-sided printing, and self-healing Wi-Fi.",
     "features": [
       "Print speeds up to 20 ppm black / 10 ppm color",
@@ -1392,7 +1354,7 @@ const PRODUCTS = [
     "printTech": "Thermal Inkjet",
     "type": "printer",
     "svgAccent": "#059669",
-    "image": "images/build.png",
+    "image": "images/products/hp-officejet-pro-8139e-wireless-color-all-in-one-printer-scan-copy-fax.jpg",
     "description": "Full-featured office printer equipped with fax, 35-sheet document feeder, fast printing, and robust security safeguards.",
     "features": [
       "Print speeds up to 20 ppm black / 10 ppm color",
@@ -1430,7 +1392,7 @@ const PRODUCTS = [
     "printTech": "Thermal Inkjet",
     "type": "printer",
     "svgAccent": "#059669",
-    "image": "images/build.png",
+    "image": "images/products/hp-officejet-pro-9110b-wireless-color-inkjet-printer.jpg",
     "description": "Dedicated high-volume business color inkjet printer built for fast speed, high paper capacity, and sharp document text.",
     "features": [
       "High speeds up to 22 ppm black / 18 ppm color",
@@ -1468,7 +1430,7 @@ const PRODUCTS = [
     "printTech": "Thermal Inkjet",
     "type": "printer",
     "svgAccent": "#059669",
-    "image": "images/build.png",
+    "image": "images/products/hp-officejet-pro-9125e-wireless-color-all-in-one-printer-scan-copy-fax.jpg",
     "description": "Pro-level business inkjet all-in-one printer featuring 22 ppm speed, 2.7-inch touchscreen, and auto 2-sided scanning.",
     "features": [
       "Print speeds up to 22 ppm black / 18 ppm color",
@@ -1506,7 +1468,7 @@ const PRODUCTS = [
     "printTech": "Thermal Inkjet",
     "type": "printer",
     "svgAccent": "#059669",
-    "image": "images/build.png",
+    "image": "images/products/hp-officejet-pro-9135e-wireless-color-all-in-one-printer-scan-copy-fax.jpg",
     "description": "Dual-tray office printer holding up to 500 sheets of paper. Designed for heavy daily printing with fast 25 ppm output.",
     "features": [
       "500-sheet dual paper tray capacity",
@@ -1544,7 +1506,7 @@ const PRODUCTS = [
     "printTech": "Thermal Inkjet",
     "type": "printer",
     "svgAccent": "#059669",
-    "image": "images/build.png",
+    "image": "images/products/hp-officejet-pro-9730e-wide-format-wireless-color-all-in-one-printer.jpg",
     "description": "Wide-format business printer capable of printing up to 11x17 inch documents and posters with vibrant color accuracy.",
     "features": [
       "Wide format printing up to 11x17 inches (A3)",
@@ -1582,7 +1544,7 @@ const PRODUCTS = [
     "printTech": "Cartridge-Free Smart Tank",
     "type": "printer",
     "svgAccent": "#059669",
-    "image": "images/products/hp-smart-tank-7602.jpg",
+    "image": "images/products/hp-smart-tank-6001-wireless-color-all-in-one-ink-tank-printer.jpg",
     "description": "Refillable cartridge-free Smart Tank printer with up to 2 years of ink included, automatic 2-sided printing, and smart-guided buttons.",
     "features": [
       "Up to 2 years of ink included in box",
@@ -1620,7 +1582,7 @@ const PRODUCTS = [
     "printTech": "Cartridge-Free Smart Tank",
     "type": "printer",
     "svgAccent": "#059669",
-    "image": "images/products/hp-smart-tank-7602.jpg",
+    "image": "images/products/hp-smart-tank-7301-wireless-color-all-in-one-ink-tank-printer.jpg",
     "description": "High-capacity Smart Tank printer featuring a 35-sheet auto document feeder, 250-sheet paper tray, and fast document printing speeds.",
     "features": [
       "35-sheet auto document feeder",
@@ -1658,7 +1620,7 @@ const PRODUCTS = [
     "printTech": "Cartridge-Free Smart Tank",
     "type": "printer",
     "svgAccent": "#059669",
-    "image": "images/products/hp-smart-tank-7602.jpg",
+    "image": "images/products/hp-smart-tank-7602-wireless-color-all-in-one-ink-tank-printer-scan-copy-fax.jpg",
     "description": "Top-of-the-line Smart Tank all-in-one printer featuring modern touch screen control, fax capability, ADF, and 2 years of ink out of the box.",
     "features": [
       "3-inch magic touch display screen",

@@ -1,6 +1,5 @@
 /* ==========================================================================
-   PRINTERSVAULT — CHECKOUT CONTROLLER
-   Handles multi-step form validation, payment mock, and order confirmation
+   PRINTERSVAULT — CHECKOUT CONTROLLER (COD PAYMENT & ORDER PLACEMENT)
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -13,10 +12,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const mainWrap = document.getElementById('checkoutMainWrap');
     if (mainWrap) {
       mainWrap.innerHTML = `
-        <div style="text-align: center; padding: 4rem 1rem;">
-          <h2 style="font-size: 1.75rem; margin-bottom: 0.5rem;">Your Cart is Empty</h2>
-          <p style="color: #666; margin-bottom: 1.5rem;">Add items to your cart before proceeding to checkout.</p>
-          <a href="shop.html" class="btn btn-primary">Return to Shop</a>
+        <div class="empty-checkout-state" style="text-align: center; padding: 5rem 1rem;">
+          <div style="width: 80px; height: 80px; border-radius: 50%; background-color: var(--surface); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="1.75">
+              <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+            </svg>
+          </div>
+          <h2 style="font-size: 1.75rem; font-weight: 800; margin-bottom: 0.5rem; color: var(--text-dark);">Your Cart is Empty</h2>
+          <p style="color: var(--text-muted); margin-bottom: 2rem;">Add items to your cart before proceeding to checkout.</p>
+          <a href="shop.html" class="btn btn-primary" style="padding: 0.85rem 2rem; font-weight: 700;">Return to Shop</a>
         </div>
       `;
     }
@@ -25,51 +30,112 @@ document.addEventListener('DOMContentLoaded', () => {
 
   renderCheckoutSummary();
 
+  let isSubmitting = false;
+
   checkoutForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    // Client-side form validation
-    const email = document.getElementById('chkEmail')?.value.trim();
-    const firstName = document.getElementById('chkFirstName')?.value.trim();
-    const lastName = document.getElementById('chkLastName')?.value.trim();
-    const address = document.getElementById('chkAddress')?.value.trim();
-    const city = document.getElementById('chkCity')?.value.trim();
-    const state = document.getElementById('chkState')?.value.trim();
-    const zip = document.getElementById('chkZip')?.value.trim();
-    const cardNumber = document.getElementById('chkCardNumber')?.value.trim();
+    if (isSubmitting) return;
 
-    if (!email || !firstName || !lastName || !address || !city || !state || !zip || !cardNumber) {
-      showToast('Please fill in all required checkout fields.', 'info');
+    // Field extractions
+    const emailInput = document.getElementById('chkEmail');
+    const firstNameInput = document.getElementById('chkFirstName');
+    const lastNameInput = document.getElementById('chkLastName');
+    const addressInput = document.getElementById('chkAddress');
+    const cityInput = document.getElementById('chkCity');
+    const stateInput = document.getElementById('chkState');
+    const zipInput = document.getElementById('chkZip');
+
+    const email = emailInput ? emailInput.value.trim() : '';
+    const firstName = firstNameInput ? firstNameInput.value.trim() : '';
+    const lastName = lastNameInput ? lastNameInput.value.trim() : '';
+    const address = addressInput ? addressInput.value.trim() : '';
+    const city = cityInput ? cityInput.value.trim() : '';
+    const state = stateInput ? stateInput.value.trim() : '';
+    const zip = zipInput ? zipInput.value.trim() : '';
+
+    if (!email || !firstName || !lastName || !address || !city || !state || !zip) {
+      if (typeof showToast === 'function') {
+        showToast('Please fill in all required shipping address fields.', 'info');
+      }
       return;
     }
 
-    // Process Mock Order
-    const orderNum = 'PV-' + Math.floor(100000 + Math.random() * 900000);
-    const subtotal = cart.reduce((sum, i) => sum + i.price * i.quantity, 0);
-    const shipping = subtotal >= 99 ? 0 : 9.99;
-    const tax = subtotal * 0.08;
-    const total = subtotal + shipping + tax;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      if (typeof showToast === 'function') {
+        showToast('Please enter a valid email address.', 'info');
+      }
+      return;
+    }
+
+    const currentCart = getCart();
+    if (currentCart.length === 0) {
+      if (typeof showToast === 'function') {
+        showToast('Your cart is empty.', 'info');
+      }
+      return;
+    }
+
+    // Prevent duplicate submission
+    isSubmitting = true;
+    const submitBtn = checkoutForm.querySelector('button[type="submit"]');
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.style.opacity = '0.7';
+      submitBtn.style.cursor = 'not-allowed';
+      submitBtn.innerHTML = '⏳ Processing Order...';
+    }
+
+    // Format Unique Order ID: PV-YYYYMMDD-XXXX
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const day = String(now.getDate()).padStart(2, '0');
+    const randomCode = Math.floor(1000 + Math.random() * 9000);
+    const orderId = `PV-${year}${month}${day}-${randomCode}`;
+
+    const totals = calcCartTotals(currentCart);
 
     const orderData = {
-      orderNumber: orderNum,
-      date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
-      items: [...cart],
+      orderNumber: randomCode,
+      orderId: orderId,
+      date: now.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
+      paymentMethod: 'Cash on Delivery (COD)',
+      status: 'Order Placed',
+      items: [...currentCart],
       customer: { email, firstName, lastName, address, city, state, zip },
-      totals: { subtotal, shipping, tax, total }
+      totals: { ...totals }
     };
 
-    // Save order to past orders in localStorage
+    // 1. Save order in primary and legacy keys
+    saveOrder(orderData);
+
+    // 2. Set latest order ID in localStorage for Order Success Page
     try {
-      let orders = JSON.parse(localStorage.getItem('pv_orders')) || [];
-      orders.unshift(orderData);
-      localStorage.setItem('pv_orders', JSON.stringify(orders));
-    } catch (e) {}
+      localStorage.setItem('pv_latest_order_id', orderId);
+    } catch (err) {}
 
-    // Clear Cart
-    saveCart([]);
+    // 3. Preserve guest profile if not logged in
+    try {
+      if (!localStorage.getItem('pv_user')) {
+        localStorage.setItem('pv_user', JSON.stringify({
+          name: `${firstName} ${lastName}`,
+          email: email
+        }));
+      }
+    } catch (err) {}
 
-    // Render Order Confirmation State
-    renderOrderConfirmation(orderData);
+    // 4. Clear cart & update counters
+    clearCart();
+    if (typeof updateCartCount === 'function') {
+      updateCartCount();
+    }
+
+    // 5. Redirect to dedicated order success page
+    setTimeout(() => {
+      window.location.href = 'order-success.html';
+    }, 400);
   });
 });
 
@@ -79,87 +145,41 @@ function renderCheckoutSummary() {
   const totalsContainer = document.getElementById('checkoutTotalsWrap');
   if (!container || !totalsContainer) return;
 
-  container.innerHTML = cart.map(item => `
-    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.85rem; font-size: 0.9rem;">
-      <div style="display: flex; align-items: center; gap: 0.75rem;">
-        <span style="font-weight: 700; color: #111;">${item.quantity}x</span>
-        <span>${item.name}</span>
-      </div>
-      <span style="font-weight: 700; color: #111;">${formatCurrency(item.price * item.quantity)}</span>
-    </div>
-  `).join('');
+  const totals = calcCartTotals(cart);
+  const pathPrefix = getPathPrefix();
 
-  const subtotal = cart.reduce((sum, i) => sum + i.price * i.quantity, 0);
-  const shipping = subtotal >= 99 ? 0 : 9.99;
-  const tax = subtotal * 0.08;
-  const total = subtotal + shipping + tax;
+  container.innerHTML = cart.map(item => {
+    const itemTotal = item.price * item.quantity;
+    const imgSource = item.image ? (item.image.startsWith('http') ? item.image : `${pathPrefix}${item.image}`) : null;
+
+    return `
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.85rem; font-size: 0.9rem;">
+        <div style="display: flex; align-items: center; gap: 0.75rem; flex: 1; padding-right: 0.5rem;">
+          <div style="width: 44px; height: 44px; background: #FFF; border: 1px solid var(--border); border-radius: 6px; display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0; padding: 2px;">
+            ${imgSource ? `<img src="${imgSource}" alt="${item.name}" style="max-width: 100%; max-height: 100%; object-fit: contain;">` : '<span style="font-size:10px; font-weight:700; color:var(--primary);">PV</span>'}
+          </div>
+          <div>
+            <div style="font-weight: 700; color: var(--text-dark); font-size: 0.875rem; line-height: 1.2;">${item.name}</div>
+            <div style="font-size: 0.775rem; color: var(--text-muted); margin-top: 2px;">Qty: ${item.quantity} × ${formatCurrency(item.price)}</div>
+          </div>
+        </div>
+        <span style="font-weight: 700; color: var(--text-dark); white-space: nowrap;">${formatCurrency(itemTotal)}</span>
+      </div>
+    `;
+  }).join('');
 
   totalsContainer.innerHTML = `
-    <div class="summary-row"><span>Subtotal</span><span>${formatCurrency(subtotal)}</span></div>
-    <div class="summary-row"><span>Shipping</span><span>${shipping === 0 ? '<strong style="color:#10B981">FREE</strong>' : formatCurrency(shipping)}</span></div>
-    <div class="summary-row"><span>Estimated Tax</span><span>${formatCurrency(tax)}</span></div>
-    <div class="summary-row summary-total"><span>Total</span><span>${formatCurrency(total)}</span></div>
-  `;
-}
-
-function renderOrderConfirmation(order) {
-  const mainWrap = document.getElementById('checkoutMainWrap');
-  if (!mainWrap) return;
-
-  const itemsListHTML = order.items.map(i => `
-    <div style="display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid #E5E5E5; font-size: 0.925rem;">
-      <span>${i.name} (x${i.quantity})</span>
-      <span style="font-weight: 700;">${formatCurrency(i.price * i.quantity)}</span>
+    <div style="display: flex; justify-content: space-between; margin-bottom: 0.6rem; font-size: 0.9rem; color: #4B5563;">
+      <span>Subtotal</span>
+      <span style="font-weight: 700; color: var(--text-dark);">${formatCurrency(totals.subtotal)}</span>
     </div>
-  `).join('');
-
-  mainWrap.innerHTML = `
-    <div style="max-width: 680px; margin: 0 auto; padding: 3rem 1.5rem; text-align: center;">
-      <div style="width: 64px; height: 64px; border-radius: 50%; background-color: #ECFDF5; color: #10B981; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
-        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-          <polyline points="20 6 9 17 4 12"></polyline>
-        </svg>
-      </div>
-
-      <h1 style="font-size: 2.25rem; font-weight: 800; margin-bottom: 0.5rem; color: #111;">Order Placed Successfully!</h1>
-      <p style="color: #666; font-size: 1.05rem; margin-bottom: 2rem;">Thank you for shopping with PrintersVault. Your order confirmation is below.</p>
-
-      <div style="background-color: #F6F6F6; border: 1px solid #E5E5E5; border-radius: 8px; padding: 1.75rem; text-align: left; margin-bottom: 2rem;">
-        <div style="display: flex; justify-content: space-between; margin-bottom: 1.25rem; padding-bottom: 1rem; border-bottom: 1.5px solid #DDD;">
-          <div>
-            <div style="font-size: 0.8rem; color: #888; text-transform: uppercase; font-weight: 700;">ORDER NUMBER</div>
-            <div style="font-size: 1.25rem; font-weight: 800; color: #E30613;">#${order.orderNumber}</div>
-          </div>
-          <div style="text-align: right;">
-            <div style="font-size: 0.8rem; color: #888; text-transform: uppercase; font-weight: 700;">DATE</div>
-            <div style="font-weight: 700;">${order.date}</div>
-          </div>
-        </div>
-
-        <h3 style="font-size: 1rem; font-weight: 700; margin-bottom: 0.75rem;">Items Summary</h3>
-        ${itemsListHTML}
-
-        <div style="margin-top: 1.25rem; padding-top: 1rem; border-top: 1.5px solid #DDD;">
-          <div style="display: flex; justify-content: space-between; font-weight: 800; font-size: 1.2rem;">
-            <span>Total Paid</span>
-            <span style="color: #E30613;">${formatCurrency(order.totals.total)}</span>
-          </div>
-        </div>
-
-        <div style="margin-top: 1.5rem;">
-          <h4 style="font-size: 0.9rem; font-weight: 700; margin-bottom: 0.35rem;">Shipping Address</h4>
-          <p style="font-size: 0.9rem; color: #444;">
-            ${order.customer.firstName} ${order.customer.lastName}<br>
-            ${order.customer.address}<br>
-            ${order.customer.city}, ${order.customer.state} ${order.customer.zip}
-          </p>
-        </div>
-      </div>
-
-      <div style="display: flex; justify-content: center; gap: 1rem;">
-        <a href="shop.html" class="btn btn-primary">Continue Shopping</a>
-        <a href="account.html" class="btn btn-outline">View Order History</a>
-      </div>
+    <div style="display: flex; justify-content: space-between; margin-bottom: 0.6rem; font-size: 0.9rem; color: #4B5563;">
+      <span>Shipping</span>
+      <span>${totals.isFreeShipping ? '<strong style="color: #10B981;">FREE</strong>' : `<strong style="color: var(--text-dark);">${formatCurrency(totals.shipping)}</strong>`}</span>
+    </div>
+    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 0.85rem; padding-top: 0.85rem; border-top: 1.5px solid var(--border); font-size: 1.15rem; font-weight: 800; color: var(--text-dark);">
+      <span>Total</span>
+      <span style="color: var(--primary); font-size: 1.3rem;">${formatCurrency(totals.total)}</span>
     </div>
   `;
 }
